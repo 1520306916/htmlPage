@@ -1,0 +1,25 @@
+.new-detail-top{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #C3CFCB;
+    margin-bottom: 40px;
+}
+.new-detail-top h1{
+    font-size: 36px;
+    font-weight:bold;
+    color: #303B3C;
+    margin-bottom: 25px;
+}
+.new-detail-top span{
+    font-size: 14px;
+    color: #999999;
+}
+.new-text p{
+    color:#303B3C ;
+    font-size: 16px;
+    line-height:28px ;
+    margin-bottom: 25px;
+}
+.new-text img{
+    max-width: 100%;
+    margin: 25px auto;
+}

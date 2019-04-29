@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>使用指南</title>
+    <script src="./utils/load.js"></script>
+    <link rel="stylesheet" href="./css/guidance.css" />
+</head>
+<body>
+  <div class="my-wrap my-gray-wrap">
+    <div id="header"></div>
+      <div class="my-body mt40">
+          <div class="guidance">
+              
+        
+          </div>
+      </div>
+  </div>
+  <div id="footer"></div>
+</body>
+<script src="./js/guidance.js"></script>
+<script id="fileList" type="text/html">
+    {{each data value is}}
+        <a class="guidance-item" href="{{value.attachements[0].url}}">
+            {{value.title}}
+            <span>
+                <img src="./images/download.svg" alt="">
+                点击下载
+            </span>
+        </a>
+    {{/each}}
+</script>
+
+
+</html>

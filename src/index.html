@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>牧原集团供应链管理系统供应商门户</title>
+    <script src="./utils/load.js"></script>
+    <link rel="stylesheet" href="./lib/swiper.min.css">
+    <link rel="stylesheet" href="./css/new_card.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+
+</head>
+
+<body>
+    <div id="header"></div>
+    <div class="index-content">
+        <div class="index-swiper">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide swiper1"> </div>
+                    <div class="swiper-slide swiper2"> </div>
+                    <div class="swiper-slide swiper3"> </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="index-journalism">
+        <div class="index-content">
+            <div class="index-left">
+
+            </div>
+            <div class="index-right">
+                <div class="index-right-top">
+                    <div class="index-right-title">
+                        采购政策
+                    </div>
+                    <ul class="index-right-ul">
+                    </ul>
+                </div>
+                <div class="index-right-bottom">
+                    <div class="index-right-title">
+                        联系我们
+                    </div>
+                    <div class="index-right-code">
+                        <img src="./images/index/timg.jpg" alt="">
+                        <P>牧原采购公众号的二维码</P>
+                    </div>
+                    <div class="index-right-information">
+                        <h4>采购部联系窗口</h4>
+                        <span>0377-66100062</span>
+                    </div>
+                    <div class="index-right-information">
+                        <h4>邮箱</h4>
+                        <span>cgb@muyuanfoods.com</span>
+                    </div>
+                    <div class="index-right-information">
+                        <h4>传真</h4>
+                        <span>0377-66100062</span>
+                    </div>
+                    <div class="index-right-other">
+                        <div>
+                            <a href="http://www.muyuanfoods.com">
+                                <img src="./images/index/other.png" alt="">
+                                <p>牧原官网</p>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="http://eps.muyuanfoods.com:10080/">
+                                <img src="./images/index/other.png" alt="">
+                                <p>牧原电子采购平台</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+</body>
+<script src="./lib/swiper.min.js"></script>
+<script id="list" type="text/html">
+    {{each data values is}}
+    <div class="new-card margin-bottom-40 pt25">
+        <div class="new-type">
+            <h5>{{noticeType(is,'name')}}</h5>
+            <a href="{{noticeType(is,'url')}}"><img src="./images/icon-right.svg" alt="" /></a>
+        </div>
+        <div class="new-body">
+            {{each values value i}}
+            <a class="new-item" href="{{noticeItemType(value,'url')}}">
+                <!--首页需要的状态标识-->
+                <!--<h6 class="new-title"><em>竞价中</em>情系教育，爱满校园丨牧原向12省59县76354eeee</h6>-->
+                <h6 class="new-title" ><i>[{{biddingStatus(value.biddingStatus,'name')}}]</i>{{value.content}}</h6>
+                <span class="new-date">{{formatDate(value.crtTime, 'MM-DD')}}</span>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+    </div>
+    {{/each}}
+</script>
+
+<script id="cgzc" type="text/html">
+    {{each rows value i}}
+    <li><a href="./news_detail.html?id={{value.id}}">{{value.title}}</a></li>
+    {{/each}}
+</script>
+<script src="./js/index.js"></script>
+
+</html>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #219767;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="组_211" data-name="组 211" transform="translate(-683 -450)">
+    <rect id="矩形_202" data-name="矩形 202" class="cls-1" width="14" height="14" transform="translate(683 450)"/>
+    <path id="check" class="cls-2" d="M2.821,6.689.113,3.781a.431.431,0,0,1,0-.582L.66,2.617a.372.372,0,0,1,.547,0L3.1,4.653,7.3.121a.372.372,0,0,1,.547,0L8.4.7a.429.429,0,0,1,0,.581L3.369,6.689a.372.372,0,0,1-.547,0" transform="translate(686 453.19)"/>
+  </g>
+</svg>

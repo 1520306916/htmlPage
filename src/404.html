@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>404</title>
+    <link rel="stylesheet" href="./lib/reset.css">
+    <style>
+        .content {
+            width: 1200px;
+            margin: 0 auto;
+            height: 100vh;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate( -50%, -50%);
+            width: 383px;
+            height: 287px;
+        }
+        .box h1 {
+            color:rgba(255,137,87,1);
+            font-size:100px;
+            position: absolute;
+            top: -40px;
+            right: -40px;
+        }
+        .box button {
+            outline: none;
+            background-color: #219767;
+            border: 0;
+            height: 35px;
+            padding: 0 28px;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 21px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="box">
+            <img src="./images/err/404.png" alt="">
+            <h1>404</h1>
+            <button>前往首页</button>
+        </div>
+    </div>
+</body>
+<script src="./lib/jquery.min.js"></script>
+<script>
+    $(function() {
+        $('button').on('click', function() {
+            window.location.href = './index.html';
+        })
+    })
+</script>
+</html>

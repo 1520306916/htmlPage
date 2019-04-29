@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>新闻动态</title>
+    <script src="./utils/load.js"></script>
+    <link rel="stylesheet" href="./css/new_card.css" />
+</head>
+
+<body>
+    <div class="my-wrap my-gray-wrap">
+        <div id="header"></div>  
+        <div class="my-body mt40 pb40">
+           
+            
+        </div>
+  </div>
+  <div id="footer"></div>
+</body>
+<script src="./utils/load.js"></script>
+<script src="./js/news.js"></script>
+<script id="news-list" type="text/html" >
+    {{each data values type}}
+        <div class="new-card margin-bottom-25 pt25">    
+            <div class="new-type">
+                <h5>{{split(type,'_')[1]}}</h5>
+                <a href="./news_list.html#{{split(type,'_')[0]}}"><img src="./images/icon-right.svg" alt="" /></a>
+            </div>
+            <div class="new-body">
+                {{each values value i}}
+                <a class="new-item" href="./news_detail.html?id={{value.id}}">
+                    <h6 class="new-title">{{value.title}}</h6>
+                    <span class="new-date">{{formatDate(value.crtTime, 'YYYY-MM-DD HH:mm')}}</span>
+                </a>
+                {{/each}}
+            </div>
+        </div>
+    {{/each}}
+</script>
+</html>

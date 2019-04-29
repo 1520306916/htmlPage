@@ -1,0 +1,258 @@
+.table-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0;
+    padding: 0 36px;
+}
+.pay-info strong{
+    font-size: 16px;
+    color:#000000 ;
+    font-weight: bold;
+}
+.pay-info span{
+    font-size:14px ;
+    color: #666666;
+    margin-left:10px ;
+}
+.pay-operate{
+    display: flex;
+    align-items: center;
+}
+.pay-history{
+    margin-right: 36px;
+    color: #219767;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.pay-history img{
+    margin-right: 6px;
+    transform: translateY(1px);
+}
+
+.pay-history:hover {
+    opacity: 0.9;
+}
+.pay-check{
+    font-size: 14px;
+    color: #666666;
+    margin-right: 29px;
+    line-height: 34px;
+}
+.pay-btn{
+    line-height: 35px;
+    background: #219767;
+    padding: 0 27px;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.pay-btn:hover {
+    background-color: #38A378;
+}
+.table{
+    background: #ffffff;
+    box-shadow:0 2px 4px rgba(144,164,183,0.22);
+}
+.t-header{
+    background: #FAFAFB;
+    border-bottom:1px solid  #E0E6E8;
+}
+.t-header ul,.t-body ul{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+}
+.th{
+    color: #303B3C;
+    font-weight: bold;
+    font-size:12px ;
+    line-height: 44px;
+}
+.t-row{
+    border-bottom: 1px solid #E0E6E8;
+}
+.t-row .t-td{
+    font-size: 12px;
+    color: #333333;
+    line-height: 16px;
+    padding: 17px 0 7px 0;
+}
+.t-td{
+    width: 70px;
+    box-sizing: border-box;
+}
+.t-td.text-more{
+    width: 100px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.t-td.t-check{
+    width: 60px !important;
+}
+.text-right{
+    text-align: right;
+}
+.text-left{
+    text-align: left;
+}
+.no-more{
+    line-height: 45px;
+    text-align: center;
+    font-size: 12px;
+    color: #92999A;
+}
+/*提交弹框*/
+.submit-body{
+    padding: 5% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.submit-body > div{
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    color: white;
+    line-height: 76px;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    /* background: #219767; */
+}
+.submit-body > p{
+    font-size: 28px;
+    margin-top: 26px;
+    margin-bottom: 10px;
+    color: #303B3C;
+}
+.submit-body > span{
+    color: #55696C;
+    font-size: 14px;
+}
+.submit-body > i{
+    font-style: normal;
+    font-size: 12px;
+    color: #E7A618;
+    margin-top: 40px;
+}
+.input-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.input-body .input-lable{
+    display: block;
+    width: 48%;
+    font-size: 14px;
+    color: #55696C;
+    margin-bottom: 10px;
+}
+.input-body input{
+    width: 48%;
+    line-height: 40px;
+    text-indent: 10px;
+    border:1px solid rgba(224,230,232,1);
+    margin-bottom: 25px;
+    outline: none;
+}
+.input-body input:hover,
+.input-body input:focus {
+    border-color: #219767;
+}
+.input-body p{
+    text-align: center;
+    font-size: 14px;
+    color: #55696C;
+    margin-top: 34px;
+    margin-bottom: 6%;
+}
+.input-body p span{
+    color: #E7A618;
+}
+.input-body .btn-group{
+    width: 48%;
+    display: flex;
+    justify-content: space-between;
+}
+.input-body .btn-group button{
+    line-height: 40px;
+    width: 48%;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+.input-body .btn-group button:first-child{
+    border: 1px solid #219767;
+    color: #219767;
+    background: #ffffff;
+}
+.input-body .btn-group button:last-child{
+    background: #219767;
+    color: #ffffff;
+}
+/*开票历史*/
+.history-body{
+    /*padding: 0 20px;*/
+
+}
+.history-item{
+    padding: 0 19px 1px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background: url("../images/history-bg.png") ;
+    background-size: 100% 100%;
+}
+
+.history-item .history-table .t-header li {
+    line-height: 30px;
+}
+.history-item .history-table ul {
+    width: 100%;
+}
+.history-info{
+    display: flex;
+    justify-content: space-between;
+    padding: 17px 0;
+}
+.history-info p:first-child{
+    flex: 1;
+}
+.history-info p span{
+    font-size: 14px;
+    color: #303B3C;
+    margin-right: 2%;
+    font-weight: bold;
+    line-height: 24px;
+}
+.history-info #payStatus{
+    color: #E7A618;
+    font-weight: bold;
+    font-size:18px;
+    line-height: 24px;
+}
+.history-table{
+    background: none;
+    box-shadow: none;
+    margin-bottom: 50px;
+}
+.history-table .t-header{
+    background: none;
+    border: none;
+}
+.history-table .t-row{
+border-color:#F0EAE8
+}
+.history-table .t-row:last-child{
+    border: none;
+}
+.history-table .th{
+    color: #707070;
+}

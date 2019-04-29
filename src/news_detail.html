@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>新闻详情</title>
+    <link rel="stylesheet" href="./css/new-detail.css" />
+</head>
+<body>
+
+<div class="my-wrap my-white-wrap">
+    <div id="header"></div>
+    <div class="my-body">
+       
+    </div>
+</div>
+<div id="footer"></div>
+</body>
+<script src="./utils/load.js"></script>
+<script id="news-detail" type="text/html">
+    <div class="breadcrumbs">
+        <span><a href='./news.html'>新闻动态</a></span>>
+        <span class="cur-breadcrumbs fw6">正文</span>
+    </div>
+    <div class="new-detail">
+        <div class="new-detail-top">
+            <h1>{{title}}</h1>
+            <span>{{crtTime}}</span>
+        </div>
+        <div class="new-text">
+                {{@ content }}    
+        </div> 
+    </div>
+</script>
+<script>
+    $(function () {
+      var id = getUrlParam("id");
+      get('/api/supply_chain/frontend/anonymous/news/getOne?id='+id).then((res) => {
+        var html = template('news-detail', res.data);
+        $(".my-body").html(html);
+    });
+    })
+</script>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>竞价管理</title>
+    <script src="./utils/load.js"></script>
+    <link rel="stylesheet" href="./css/bidding.css" />
+</head>
+<body>
+    <div id="header"></div>
+    <div class="bidding-nav">
+        <ul>
+            <li><a href="./material-bidding.html">原粮竞价</a></li>
+            <li class="active"><a href="./accessories-bidding.html">辅料竞价</a></li>
+            <li><a href="./logistics-bidding.html">物流竞价</a></li>
+        </ul>
+    </div>
+
+    <div class="bidding-content">
+        <div>
+            <div class="bidding-content-nav">
+                <span data-name="1">竞价中</span>
+                <span data-name="2">结果公告</span>
+            </div>
+            <div class="bidding-table"></div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+</body>
+<script id="table1" type="text/html">
+    <table>
+        <thead>
+            <tr>
+                <th>竞价编号</th>
+                <th>标题</th>
+                <th>发布时间</th>
+                <th>截止时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{each data.rows value is}}
+            <tr>
+                <td>{{value.bizNo}}</td>
+                <td>{{value.content}}</td>
+                <td>{{formatDate(value.crtTime, 'YYYY/MM/DD')}}</td>
+                <td>{{formatDate(value.ncStartTime, 'YYYY/MM/DD')}}</td>
+                <td class="operation"><a href="./accessories-bidding-details.html?id={{value.id}}">查看详情</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <div id="conduct" class="tcdPageCode"></div>
+</script>
+<script id="table2" type="text/html">
+    <table>
+        <thead>
+        <tr>
+            <th>竞价编号</th>
+            <th>标题</th>
+            <th>发布时间</th>
+            <th>截止时间</th>
+            <th>竞价结果</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{each data.rows value is}}
+        <tr>
+            <td>{{value.bizNo}}</td>
+            <td>{{value.content}}</td>
+            <td>{{formatDate(value.crtTime, 'YYYY/MM/DD')}}</td>
+            <td>{{formatDate(value.ncStartTime, 'YYYY/MM/DD')}}</td>
+            <td title={{value.checkHost}} class="result">{{value.checkHost}}</td>
+            <td class="operation"><a href="./accessories-bidding-result.html?id={{value.id}}">查看详情</a></td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    <div id="conduct" class="tcdPageCode"></div>
+</script>
+
+<script src="./js/accessories-bidding.js"></script>
+<script id="accessories-list" type="text/html" >
+    <table>
+        <thead>
+        <tr>
+            <th>竞价编号</th>
+            <th>标题</th>
+            <th>发布时间</th>
+            <th>截止时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody class="my-body">
+        {{each rows value i}}
+        <tr>
+            <td>{{value.bizNo}}</td>
+            <td>{{value.content}}</td>
+            <td>{{value.ncStartTime}}</td>
+            <td>{{value.ncEndTime}}</td>
+            <td class="operation"><a href="./accessories-bidding-details.html?id={{value.id}}">查看详情</a></td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</script>
+</html>

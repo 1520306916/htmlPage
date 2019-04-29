@@ -1,0 +1,484 @@
+.bidding-nav {
+  height: 30px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+.bidding-nav > ul li {
+  float: left;
+  margin-right: 100px;
+  font-size: 14px;
+  color: #303B3C;
+  height: 27px;
+}
+.bidding-nav > ul li:hover {
+  color: #219767;
+  font-weight: 600;
+}
+.bidding-nav > ul li.active {
+  color: #219767;
+  border-bottom: 3px solid #219767;
+  font-weight: 600;
+}
+.bidding-nav > ul li:last-of-type {
+  margin: 0;
+}
+.bidding-content {
+  background-color: #F4F7F8;
+  padding-bottom: 40px;
+  min-height: calc(100vh - 100px);
+  min-width: 1200px;
+}
+.bidding-content > div {
+  width: 1200px;
+  margin: 0 auto;
+}
+.bidding-content > div .bidding-content-nav {
+  height: 50px;
+}
+.bidding-content > div .bidding-content-nav span {
+  line-height: 50px;
+  padding: 0 20px;
+  color: #303B3C;
+  font-size: 14px;
+  cursor: pointer;
+}
+.bidding-content > div .bidding-content-nav span.active {
+  color: #219767;
+  font-weight: 600;
+}
+.bidding-table {
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(144, 164, 183, 0.22);
+  padding: 20px;
+}
+.bidding-table table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+}
+.bidding-table th {
+  line-height: 44px;
+  background-color: #FAFAFB;
+  color: #303B3C;
+  font-weight: 600;
+}
+.bidding-table td {
+  line-height: 40px;
+  color: #5D686A;
+  background-color: #fff;
+}
+.bidding-table td.operation {
+  color: #219767;
+  cursor: pointer;
+}
+.bidding-table td.operation:hover {
+  color: #38A378;
+}
+.bidding-table td.result {
+  color: #E7A618;
+}
+.bidding-table th,
+.bidding-table td {
+  padding-left: 25px;
+  text-align: left;
+}
+.bidding-table tr {
+  border-bottom: 1px solid #E0E6E8;
+  border-top: 1px solid #E0E6E8;
+}
+.bidding-details {
+  background-color: #F4F7F8;
+}
+.bidding-information > p {
+  color: #219767;
+  font-size: 14px;
+  cursor: default;
+  padding-top: 5px;
+}
+.bidding-information > p a {
+  color: #55696C;
+}
+.bidding-information > p .back {
+  color: #219767;
+  font-weight: 600;
+}
+.bidding-information .bidding-information-title {
+  font-size: 24px;
+  color: #303B3C;
+  text-align: center;
+  font-weight: 600;
+  padding-bottom: 8px;
+}
+.bidding-information .information-box {
+  margin-top: 20px;
+  box-shadow: 0px 2px 4px rgba(144, 164, 183, 0.22);
+}
+.bidding-information .information-box h4 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 35px;
+  background: #219767;
+  padding: 0 25px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.bidding-information .information-box h4 > div {
+  font-size: 12px;
+  color: #fff;
+}
+.bidding-information .information-box h4 > div span {
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 38px;
+  overflow: hidden;
+  position: relative;
+}
+.bidding-information .information-box h4 > div span input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  outline: none;
+  opacity: 0;
+  width: 65px;
+  font-size:0;
+  cursor: pointer;
+}
+.bidding-information .information-box h4 > div span:hover {
+  opacity: 0.8;
+}
+
+.bidding-information .information-box h4 > div span {}
+.bidding-information .information-box h4 > div img {
+  vertical-align: middle;
+  margin: -2px 5px 0 0;
+}
+.bidding-information .information-box .information-text {
+  padding: 0 25px 35px;
+  background-color: #fff;
+}
+.bidding-information .information-box .information-text .information-text-bottom,
+.bidding-information .information-box .information-text .information-text-top {
+  display: flex;
+}
+.bidding-information .information-box .information-text .information-text-bottom p,
+.bidding-information .information-box .information-text .information-text-top p {
+  font-size: 14px;
+  color: #55696C;
+  padding: 15px 0;
+  line-height: 20px;
+}
+.bidding-information .information-box .information-text .information-text-bottom p span,
+.bidding-information .information-box .information-text .information-text-top p span {
+  color: #303B3C;
+  font-weight: 600;
+  margin-right: 12px;
+  min-width: 60px;
+}
+.bidding-information .information-box .information-text .information-text-top {
+  border-bottom: 1px solid #E3E7E8;
+}
+.bidding-information .information-box .information-text .information-text-top p {
+  margin-right: 50px;
+}
+.bidding-information .information-box .information-text .information-text-bottom p {
+  display: flex;
+}
+.bidding-information .information-box .information-tips {
+  background-color: #fff;
+  padding: 0 20px;
+  border-bottom: 3px solid #DEE1E2;
+}
+.bidding-information .information-box .information-tips p {
+  line-height: 60px;
+  font-size: 14px;
+  color: #219767;
+  cursor: pointer;
+}
+.bidding-information .information-box .information-tips p img {
+  vertical-align: middle;
+  margin: -2px 5px 0 0;
+}
+.bidding-information .information-box .information-tips p span {
+  font-weight: 600;
+}
+.bidding-information .price-table {
+  padding: 15px;
+  background-color: #fff;
+}
+.bidding-information .price-table table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+}
+.bidding-information .price-table table td {
+  color: #5D686A;
+}
+.bidding-information .price-table table th {
+  color: #303B3C;
+  font-weight: 600;
+}
+.bidding-information .price-table table td,
+.bidding-information .price-table table th {
+  line-height: 40px;
+  border: 1px solid #DDE3E8;
+  box-sizing: border-box;
+  padding: 0 9px;
+}
+.bidding-information .price-table table .center {
+  text-align: center;
+}
+.bidding-information .price-table table .left {
+  text-align: left;
+}
+.bidding-information .price-table table .right {
+  text-align: right;
+}
+.bidding-information .price-table table .right input {
+  text-align: right;
+}
+.bidding-information .price-table table .input {
+  padding: 0;
+}
+.bidding-information .price-table table .disabled {
+  background-color: #F4F7F8;
+  cursor: default;
+}
+.bidding-information .price-table table tbody .disabled input {
+  visibility: hidden;
+}
+tbody td:not(.disabled) {
+  cursor: pointer;
+}
+.bidding-information .price-table table tbody input[type='text'] {
+  width: 80px;
+  height: 36px;
+  outline: none;
+  border: 0;
+  color: #5D686A;
+  font-size: 12px;
+}
+.bidding-information .price-table table tbody input[type="radio"] {
+  display: none;
+}
+.bidding-information .price-table table tbody input[type="radio"]:checked + label::before {
+  background-color: #219767;
+  background-clip: content-box;
+  padding: 3px;
+}
+.bidding-information .price-table table tbody input[type="radio"] + label::before {
+  content: '';
+  background-color: #fff;
+  display: inline-block;
+  border: 1px solid #c2c7cd;
+  width: 15px;
+  height: 15px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin-right: 6px;
+  transform: translateY(3px);
+}
+.bidding-information .price-table .global-select {
+  position: relative;
+}
+.bidding-information .price-table .global-select.active .select-input {
+  border: 1px solid #6d868b;
+}
+.bidding-information .price-table .global-select.active img {
+  transform: rotate(180deg);
+}
+.bidding-information .price-table .global-select input {
+  padding-left: 9px;
+}
+.bidding-information .price-table .global-select .select-input {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+.bidding-information .price-table .global-select ul {
+  position: absolute;
+  top: 44px;
+  min-width: 100%;
+  display: none;
+  z-index: 2;
+  box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+}
+.bidding-information .price-table .global-select ul::-webkit-scrollbar {
+  display: none;
+}
+.bidding-information .price-table .global-select ul li {
+  background-color: #fff;
+  padding: 0 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.bidding-information .price-table .global-select ul li:hover {
+  background-color: #F4F7F8;
+}
+.bidding-information .price-table .global-select img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 9px;
+  transition: all .3s;
+  transform-origin: 50% 10%;
+}
+.bidding-information .price-total {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 14px;
+  min-height: 10px;
+}
+.bidding-information .price-total p {
+  color: #303B3C;
+  margin-right: 33px;
+}
+.bidding-information .price-total span {
+  color: #55696C;
+  margin-right: 9px;
+}
+.bidding-information .price-total button {
+  width: 81px;
+  height: 35px;
+  background: #219767;
+  opacity: 1;
+  border-radius: 4px;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+}
+.bidding-information .price-total button:hover {
+  background-color: #38A378;
+}
+.model {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9;
+  display: none;
+}
+.model > div {
+  width: 1180px;
+  margin: 10vh auto 0;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.model > div .model-top {
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 23px;
+  border-bottom: 3px solid #DEE1E2;
+}
+.model > div .model-top p {
+  font-size: 14px;
+  color: #55696C;
+}
+.model > div .model-top p span {
+  color: #219767;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 15px;
+}
+.model > div .model-top img {
+  cursor: pointer;
+}
+.hidden{
+  display: none;
+}
+
+.bidding-login {
+  width: 100%;
+  padding-top: 35px;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.bidding-login img {
+  animation: rotate 2s linear infinite;
+  width: 40px;
+  height: 40px;
+}
+.bidding-login p {
+  font-size: 14px;
+  margin-top: 20px;
+}
+tbody .active {
+  border-color: #219767 !important;
+  position: relative;
+}
+tbody .active::after {
+    position: absolute;
+    content: ' ';
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 1px;
+    background-color: #219767;
+}
+
+tbody .active::before {
+  position: absolute;
+  content: ' ';
+  top: 0;
+  width: 1px;
+  left: 0;
+  height: 100%;
+  background-color: #219767;
+}
+
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.model-login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .4);
+  z-index: 9;
+  display: none;
+}
+
+.model-login>.content {
+  width: 380px;
+  height: 344px;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  text-align: center;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+.model-login>.content img {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}

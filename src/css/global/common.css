@@ -1,0 +1,209 @@
+.margin-bottom-40{
+    margin-bottom: 40px;
+}
+.margin-bottom-25{
+    margin-bottom: 20px;
+    
+}
+.pt25 {
+    padding-top: 25px !important;
+}
+.mt20 {
+    margin-top: 20px !important;
+}
+.mt25 {
+    margin-top: 25px !important;
+}
+.mt40 {
+    margin-top: 40px !important;
+}
+.pb40 {
+    padding-bottom: 40px;
+}
+.fw6 {
+    font-weight: 600;
+}
+.my-wrap{
+    width: 100%;
+    min-height: 100vh;
+    min-width: 1200px;
+}
+.my-white-wrap{
+    background: #ffffff;
+}
+.my-gray-wrap{
+    background: #F4F7F8;
+}
+.my-body{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    background: inherit;
+}
+.breadcrumbs{
+    margin-bottom:17px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #55696C;
+}
+.cur-breadcrumbs{
+    color: #219767;
+}
+.weight600 {
+    font-weight: 600;
+}
+/*弹出框*/
+.hidden{
+    display: none;
+}
+.show{
+    display: block;
+}
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, .4);
+    display: none;
+    z-index: 4;
+}
+.modalBox{
+    position: relative;
+    width: 1110px;
+    margin: 8% auto 0;
+    background: #ffffff;
+    z-index:6 ;
+    border-radius: 4px;
+    padding: 32px;
+    box-sizing: border-box;
+}
+.modalMark{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(0,0,0,.4);
+    z-index: 5;
+}
+.modalHeader{
+    display: flex;
+    justify-content: space-between;
+}
+.modalHeader h4{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+    color:#219767 ;
+}
+.modalHeader h4 > span{
+    color: #666666;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 15px;
+}
+.modalHeader img{
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+.tcdPageCode {
+    padding: 20px 0;
+    text-align: right;
+}
+.tcdPageCode a {
+    display: inline-block;
+    color: #8896A1;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.tcdPageCode a:hover {
+    text-decoration: none;
+    color: #219767;
+}
+.tcdPageCode span.current {
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #fff;
+    background-color: #219767;
+    border: 1px solid #219767;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.tcdPageCode span.disabled {
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    margin: 0 2px;
+    color: #E0E6E8;
+    cursor: default;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+input::-webkit-input-placeholder{
+    color: #CCD5D9;
+}
+
+input:-moz-placeholder {
+    color: #CCD5D9
+}
+
+input::-moz-placeholder {
+    color: #CCD5D9;
+}
+
+input:-ms-input-placeholder {
+    color: #CCD5D9;
+}
+
+.model-g {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, .4);
+    display: none;
+}
+
+.model-g .context {
+    width: 50%;
+    padding: 50px;
+    background-color: #fff;
+    margin: 8% auto 0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.model-g .context h3 {
+    font-size: 28px;
+    color: #303B3C;
+    margin-top: 20px;
+}
+
+.model-g .context p {
+    color: #E7A618;
+    font-size: 16px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.vh100 {
+    min-height: 100vh
+}

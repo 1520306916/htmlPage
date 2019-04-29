@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>竞价管理</title>
+    <script src="./utils/load.js"></script>
+    <link rel="stylesheet" href="./css/bidding.css" />
+</head>
+
+<body class="bidding-details">
+    <div id="header"></div>
+    <div class="bidding-content">
+        <div class="bidding-information">
+            <p><a href="./logistics-bidding.html?type=2">物流竞价</a> > <span class="back">公告详情</span></p>
+            <h3 class="bidding-information-title">牧原集团物流采购竞价</h3>
+            <div class="information-box">
+                <h4>公告信息</h4>
+                <div class="information-text">
+                    <!--<div class="information-text-top">
+                        <p><span>竞价编号:</span>123456789</p>
+                        <p><span>发布时间:</span>2019/04/27</p>
+                        <p><span>竞价截止时间:</span>2019/04/27</p>
+                        <p><span>供货开始时间:</span>2019/04/27</p>
+                        <p><span>供货结束时间:</span>2019/04/27</p>
+                    </div>
+                    <div class="information-text-bottom">
+                        <p>
+                            <span>质量标准:</span>
+                            这里是运输须知，发票要求、损耗计算、结算方式、报价类型【吨运价/吨公里运价】等；发票要求、损耗计算、结算方式、报价类型【吨运价/吨公里运价】等发票要求、损耗计算、结算方式、报价类型【吨运价/吨公里运价】等发票要求、损耗计算、结算方式、报价类型【吨运价/吨公里运价】等
+                        </p>
+                    </div>-->
+                </div>
+            </div>
+            <div class="information-box">
+                <h4>
+                    竞价中标公告
+                    <div>
+                        <span class="supplyBizNo" ></span>
+                        <!--<span id='bidding-result-record'><img src="./images/bidding/history.svg">报价记录</span>-->
+                    </div>
+                </h4>
+                <!--<div class="information-tips">
+                    <p><img src="./images/bidding/horn.svg"><span>您的中标物料有：</span>物料1(目的地1、目的地2、目的地3、目的地4、目的地5、目的地6）</p>
+                </div>-->
+                <div class="price-table">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <div class="model" id="bidding-result">
+        <div>
+            <div class="model-top">
+                <p>
+                    <span>报价记录</span>
+                    竞价编号:123456
+                    <img src="" alt="">
+                </p>
+                <img src="./images/icon-close.svg" alt="">
+            </div>
+            <div class="bidding-table">
+                <table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="left">物料名称</th>
+                                <th colspan="4" class="left">目的地（饲料厂）</th>
+                                <th colspan="4" class="left">地址</th>
+                                <th colspan="2" class="left">报价类型</th>
+                                <th colspan="4" class="left">交货地</th>
+                                <th colspan="2" class="right">出厂价(元/吨)</th>
+                                <th colspan="2" class="right">报价(元/吨)</th>
+                                <th colspan="2" class="right">供货量(吨)</th>
+                                <th colspan="4" class="left">修改时间</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td colspan="2" class="left">物料1</td>
+                                <td colspan="4" class="left">这里是目的地饲料厂</td>
+                                <td colspan="4" class="left">这里是目的地地址</td>
+                                <td colspan="2" class="left">出厂价</td>
+                                <td colspan="4" class="left">这里是交货地</td>
+                                <td colspan="2" class="right">12</td>
+                                <td colspan="2" class="right">44</td>
+                                <td colspan="2" class="right">45666</td>
+                                <td colspan="4" class="left">2019/2/29 </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="left">物料1</td>
+                                <td colspan="4" class="left">这里是目的地饲料厂</td>
+                                <td colspan="4" class="left">这里是目的地地址</td>
+                                <td colspan="2" class="left">出厂价</td>
+                                <td colspan="4" class="left">这里是交货地</td>
+                                <td colspan="2" class="right">12</td>
+                                <td colspan="2" class="right">44</td>
+                                <td colspan="2" class="right">45666</td>
+                                <td colspan="4" class="left">2019/2/29 </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="tcdPageCode"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="./js/bidding.js"></script>
+
+<script id="logist-detail" type="text/html">
+    <div class="information-text-top">
+        <p><span>竞价编号:</span>{{bizNo}}</p>
+        <p><span>发布时间:</span>{{formatDate(crtTime, 'YYYY-MM-DD')}}</p>
+        <p><span>竞价截止时间:</span>{{formatDate(ncEndTime, 'YYYY-MM-DD')}}</p>
+        <p><span>合同开始时间:</span>{{formatDate(contractStartTime, 'YYYY-MM-DD')}}</p>
+        <p><span>合同结束时间:</span>{{formatDate(contractEndTime, 'YYYY-MM-DD')}}</p>
+    </div>
+    <div class="information-text-bottom">
+        <p>
+            <span>运输须知:</span>
+            {{transportNotice}}
+        </p>
+    </div>
+    </div>
+</script>
+<script id="bidding-detail" type="text/html">
+    <table>
+        <thead>
+        <tr>
+            <th class="disabled">序号</th>
+            <th class="disabled left">起始地</th>
+            <th class="disabled left">地址</th>
+            <th class="disabled left">运输方式</th>
+            <th class="disabled left">包装类型</th>
+            <th class="disabled right">最高价(元/吨)</th>
+            <th class="disabled left">报价类型</th>
+            <!--<th  class="left">供应商编号</th>-->
+            <th class="right">中标价</th>
+            <!-- <th  class="right">中标数量</th> -->
+        </tr>
+        </thead>
+
+        <tbody>
+        {{each data value i}}
+        <tr>
+            <td class="disabled">{{i+1}}</td>
+            <td class="disabled left">{{value.originName}}</td>
+            <td class="disabled left">{{value.destName}}</td>
+            <td class="disabled left">{{value.transportName}}</td>
+            <td class="disabled left">{{value.packageName}}</td>
+            <td class="disabled right">{{value.maxPrice}}</td>
+            <td class="disabled left">{{value.quoteType}}</td>
+            <!--<td  class="right">{{value.supplyId}}<input type="text" /></td>-->
+            <td class="right">{{value.evaluationPrice}}<input type="text" /></td>
+            <!-- <td  class="left">{{value.evaluationAmount}}<input type="text" /></td> -->
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    <div class="price-total"></div>
+</script>
+<script src="./js/logistics-bidding-result.js"></script>
+</html>

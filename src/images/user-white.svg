@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path);
+      }
+    </style>
+    <clipPath id="clip-path">
+      <path id="路径_76" data-name="路径 76" class="cls-1" d="M172.338,152.849H160.447v-1.491c0-1.1,1.212-1.82,2.229-2.227a9.645,9.645,0,0,1,7.434,0c1.017.407,2.229,1.124,2.229,2.227v1.49Zm-5.946-5.946a2.973,2.973,0,1,1,2.973-2.973h0A2.977,2.977,0,0,1,166.392,146.9Z"/>
+    </clipPath>
+  </defs>
+  <g id="组_349" data-name="组 349" transform="translate(-1745 -23)">
+    <rect id="矩形_273" data-name="矩形 273" class="cls-2" width="14" height="14" transform="translate(1745 23)"/>
+    <g id="组_348" data-name="组 348" transform="translate(1585.553 -116.957)">
+      <path id="路径_75" data-name="路径 75" class="cls-1" d="M172.338,152.849H160.447v-1.491c0-1.1,1.212-1.82,2.229-2.227a9.645,9.645,0,0,1,7.434,0c1.017.407,2.229,1.124,2.229,2.227v1.49Zm-5.946-5.946a2.973,2.973,0,1,1,2.973-2.973h0A2.977,2.977,0,0,1,166.392,146.9Z"/>
+      <g id="组_347" data-name="组 347" class="cls-3">
+        <rect id="Rectangle_6" data-name="Rectangle 6" class="cls-1" width="25" height="25" transform="translate(160.447 140.958)"/>
+      </g>
+    </g>
+  </g>
+</svg>

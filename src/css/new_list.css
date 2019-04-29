@@ -1,0 +1,88 @@
+
+.new_list-wrap{
+    display: flex;
+    width: 100%;
+}
+.new-backgroung{
+    margin-bottom: 22px;
+}
+.new-body{
+    display: flex;
+}
+.new-con{
+    flex: 1;
+    margin-left: 30px;
+    overflow: hidden;
+    display: none;
+}
+.new-list li{
+    padding:34px 20px 30px;
+    border-bottom:1px solid rgba(198,205,207,1);
+    cursor: pointer;
+}
+.new-list p{
+    font-size: 14px;
+    color: #55696C;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.new-list li:hover{
+    background: #F4F7F8;
+}
+.new-list li:hover .new-title{
+    color: #219767;
+}
+.new-list li span{
+    color: #92999A;
+    font-size: 14px;
+    line-height: 20px;
+}
+.new-title{
+    color: #303B3C;
+    font-weight: bold;
+    line-height: 21px;
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+.new-nav{
+    width: 150px;
+}
+.new-nav li{
+    position: relative;
+    margin-bottom: 25px;
+    line-height: 43px;
+    color: #55696C;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.new-nav li:hover::before,
+.new-nav li.active{
+    background:#219767;
+    color: #ffffff;
+}
+.new-nav li:hover:not(.active) {
+    color:#219767;
+}
+
+.new-nav li.active::before {
+    background: #fff;
+}
+.new-nav li:before{
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #AEB1B9;
+    margin-right: 9px;
+}
+
+#pagination{
+    float: right;
+    margin: 20px 0;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>付款管理</title>
+    <link rel="stylesheet" href="./css/pay_manager.css" />
+</head>
+
+<body>
+    <div class="my-wrap my-gray-wrap">
+        <div id="header"></div>
+        <div class="my-body mt40">
+        </div>
+  </div>
+  <div id="footer"></div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="./lib/template.js"></script>
+<script src="./lib/jquery.page.js"></script>
+<script src="./lib/template-utils.js"></script>
+<script src="./utils/request.js"></script>
+<script src="./utils/load.js"></script>
+<script src="./js/pay_manager.js"></script>
+<script src="./lib/moment.min.js"></script>
+<script id="pay-list" type="text/html" >
+   
+    {{if rows[0]}}
+    <div class="pay-search">
+        <input id='inp' type="text" placeholder="输入合同编号进行搜索">
+        <button onclick='templateNewsList(document.getElementById("inp").value)'>搜索</button>
+    </div>
+    {{each rows values i}}
+    <div class="pay-card">
+        <div class="pay-top">
+            <h4>合同编号：{{values.FToOANo}}</h4>
+            <a href="./pay_invoice.html?FContractNo={{values.FToOANo}}"><img src="./images/icon-right.svg" alt="" /></a>
+        </div>
+        <div class="pay-info">
+            <p>
+                <strong>流向编号:</strong>
+                <span  title={{values.FContractNo}}>{{values.FContractNo}}</span>
+            </p>
+            <p>
+                <strong>签订日期:</strong>
+                <span  title={{values.FSignDate}}>{{formatDate(values.FSignDate, 'YYYY-MM-DD')}}</span>
+            </p>
+            <p>
+                <strong>物料:</strong>
+                <span  title={{values.FMaterielName}}>{{values.FMaterielName}}</span>
+            </p>
+            <p>
+                <strong>签订公司:</strong>
+                <span  title={{values.FSignCompany}}>{{values.FSignCompany}}</span>
+            </p>
+            <p>
+                <strong>收货公司:</strong>
+                <span  title={{values.FReceivingCompany}}>{{values.FReceivingCompany}}</span>
+            </p>
+            <p>
+                <strong>合同单价:</strong>
+                <span  title={{values.FContractUnitPrice}}>{{values.FContractUnitPrice}}</span>
+            </p>
+            <p>
+                <strong>合同数量:</strong>
+                <span  title={{values.FContractAmount}}>{{values.FContractAmount}}</span>
+            </p>
+            <p>
+                <strong>结束时间:</strong>
+                <span  title={{values.FContractEndDate}}>{{formatDate(values.FContractEndDate, 'YYYY-MM-DD')}}</span>
+            </p>
+            <p>
+                <strong>金额:</strong>
+                <span  title={{values.FPlanApplyPrice}}>{{values.FPlanApplyPrice}}</span>
+            </p>
+            <p>
+                <strong>预付款:</strong>
+                <span  title={{values.FAdvanceCharge}}>{{values.FAdvanceCharge}}</span>
+            </p>
+            <p>
+                <strong>应付款:</strong>
+                <span  title={{values.FAccountsPayable}}>{{values.FAccountsPayable}}</span>
+            </p>
+            <p>
+                <strong>已执行数量:</strong>
+                <span  title={{values.FExecutedQuantity}}>{{values.FExecutedQuantity}}</span>
+            </p>
+            <p>
+                <strong>未执行数量:</strong>
+                <span  title={{values.FUnexecutedQuantity}}>{{values.FUnexecutedQuantity}}</span>
+            </p>
+        </div>
+    </div>
+    <div id="pagination" class="tcdPageCode"></div>
+    {{/each}}
+    {{else}}
+        <div class="data-err">
+            <img src="./images/err/noData.svg" alt="">
+            <p>暂无数据</p>
+        </div>
+    {{/if}}
+    
+</script>
+</html>

@@ -1,0 +1,80 @@
+<header>
+        <div class="nav">
+            <nav>
+                <div class="index-logo">
+                    <a href="./index.html"><img src="./images/index-logo.svg" alt="logo"></a>
+                    <h1>牧原集团饲料管理系统供应商门户</h1>
+                </div>
+                <div class="index-nav">
+                    <!-- nav -->
+                </div>
+                <div class="index-search">
+                    <div class="search-input">
+                        <div class="search-down">
+                           
+                        </div>
+                        <input type="text" placeholder="搜索" id="input_keyword"/>
+                        <img src="./images/search.svg" alt="" id="btn_search">
+                    </div>
+                 
+                    <div id="user">
+                        <!-- user -->
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+<script id="nav-menu" type="text/html">
+    <ul>
+        <li {{if contains(currentPosition, 'index')}}class='active'{{/if}}><a href="./index.html">首页</a></li>
+        <li {{if contains(currentPosition, 'bidding')}}class='active'{{/if}}>
+            <a href="./material-bidding.html">竞价管理</a>
+            <ul class="index-nav-list">
+                <li><a href="./material-bidding.html">原粮竞价</a></li>
+                <li><a href="./accessories-bidding.html">辅料竞价</a></li>
+                <li><a href="./logistics-bidding.html">物流竞价</a></li>
+            </ul>
+        </li>
+        {{if login}}
+        <li {{if contains(currentPosition, 'pay')}}class='active'{{/if}}><a href="./pay_manager.html">付款管理</a></li>
+        {{/if}}
+        <li {{if contains(currentPosition, 'news')}}class='active'{{/if}}><a href="./news.html">新闻动态</a></li>
+        <li {{if contains(currentPosition, 'guidance')}}class='active'{{/if}}><a href="./guidance.html">使用指南</a></li>
+    </ul>
+</script>
+
+<script id="uesr-login" type="text/html">
+    {{if login}}
+    <div class="login-user">
+        <img src="./images/user-white.svg" alt="">
+        <img class="hover" src="./images/user-hover.svg" />
+        <span>{{user}}</span>
+        <ul class="index-nav-list">
+            <li>我的竞价</li>
+            <li class="logout-button">退出</li>
+        </ul>
+    </div>
+    {{else}}
+    <div class="login-button">
+        <a href="./login.html"><button><img src="./images/user.svg" /><img class="hover"
+                    src="./images/userHover.svg" />登录</button></a>
+        <a href="./register.html" class="search-register">注册</a>
+    </div>
+    {{/if}}
+</script>
+<script id="search-type" type="text/html">
+    <div>
+        {{each data value is}}
+            {{if is==0}}
+                <span id="LI" data="{{value.code}}">{{value.title}}</span>
+            {{/if}}    
+        {{/each}}
+        <img src="./images/down.svg">
+    </div>
+    <ul class="index-nav-list top45" id="down">
+        {{each data value is}}
+            <li data={{value.code}}>{{value.title}}</li>
+        {{/each}}
+    </ul>
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>牧原供应商 | 账号中心</title>
+    <link rel="stylesheet" href="./lib/reset.css" />
+    <link rel="stylesheet" href="./css/global/login_hander.css" />
+    <link rel="stylesheet" href="./lib/selectFilter.css">
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+<body>
+    <header class="login_hander">
+        <div>
+            <a href="./index.html">
+                <img src="./images/logo.svg" alt="logo" />
+            </a>
+        </div>
+        <h1>牧原集团供应链管理系统供应商门户</h1>
+    </header>
+    <div class="register-content">
+        <div class="register-box" id="register-box">
+            <h2>欢迎注册</h2>
+            <div class="register-form">
+                <div class="register-select">
+                    <p>请选择所属类别</p>
+                    <div class="filter-box">
+                        <div class="filter-text">
+                            <input class="filter-title" type="text" readonly placeholder="pleace select" />
+                            <i class="icon icon-filter-arrow"></i>
+                        </div>
+                        <select name="filter">
+                            <option value="1" selected>农户类</option>
+                            <option value="2">企业类</option>
+                            <option value="3">物流公司</option>
+                            <option value="4">个体类</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="register-checkbox">
+                    <input id="btn_agreen" value="1" type="checkbox" class="input_check">
+                    <span>我已阅读并接受<a href="./agreement.html">《供应商注册协议》</a></span>
+                    <p>请勾选同意协议内容</p>
+                </div>
+                
+                <div class="register-btn">
+                    <button class="register-button">下一步</button>
+                </div>
+                <p class="register-bottom-tips">已有账号，<a href="./login.html" >马上登陆</a> <span><a href="./index.html">返回首页</a></span></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="./lib/selectFilter.js"></script>
+<script>
+    $(function () {
+        var type = 1;
+        $('.filter-box').selectFilter({
+            callBack : function (val){
+                type = val;
+            }
+        });
+        $(".register-button").click(function () {
+            if(!$("#btn_agreen").is(":checked")){
+                $('.register-checkbox p').show();
+                return;
+            } 
+            window.location.href = `./register_details.html?type=${type}`;
+        }) 
+    })
+</script>
+</html>
+</html>

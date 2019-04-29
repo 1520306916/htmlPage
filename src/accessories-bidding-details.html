@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>竞价管理</title>
+    <script src="./utils/load.js"></script>
+    <link rel="stylesheet" href="./css/bidding.css" />
+</head>
+
+<body class="bidding-details">
+    <div id="header"></div>
+    <div class="bidding-content">
+        <div class="bidding-information">
+                <p><a href="./accessories-bidding.html?type=1">辅料竞价</a> > <span class="back">竞价详情</span></p>
+            <h3 class="bidding-information-title">牧原集团辅料采购竞价</h3>
+            <div class="information-box">
+                <h4>公告信息</h4>
+                <div class="information-text">
+                </div>
+            </div>
+            <div class="information-box">
+                <h4>
+                    报价表
+                    <div id="nn" class="mm">
+                        <span id="bidding-detail-record"><img src="./images/bidding/history.svg">报价记录</span>
+                        <span id="bidding-detail-export"><img src="./images/bidding/export.svg">模板导出</span>
+                        <!--<span id="bidding-detail-import"><img src="./images/bidding/import.svg">导入数据<input type="file"></span>-->
+                        <span class="upload-modle" id="bidding-detail-import"><img src="./images/bidding/import.svg">导入数据<input type="file"></span>
+                        <!--<span><img src="./images/bidding/printing.svg">打印</span>-->
+                    </div>
+                </h4>
+                <div class="price-table">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <div class="model" id="bidding-details">
+        <div>
+            <div class="model-top">
+                <p class="bizNo">
+                </p>
+                <img src="./images/icon-close.svg" alt="">
+            </div>
+            <div class="bidding-table">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="./js/bidding.js"></script>
+<script src="./lib/xlsx.core.min.js"></script>
+<script src="./lib/xlsx.full.min.js"></script>
+<script src="./js/accessories.js"></script>
+<script>
+  $(function () {
+    var allmoney , count;
+    $('#nn').on('change', '.upload-modle input', function() {
+      var mm = $(this).get(0);
+      var files = $(this).get(0).files[0];
+      console.log(files);
+      console.log(mm);
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        data = e.target.result;
+
+        wb = XLSX.read(btoa(fixdata(data)), {//手动转化
+          type: 'base64'
+        });
+
+        var a = wb.SheetNames[0];
+        var b = wb.Sheets[a];//内容为方式2
+        data = XLSX.utils.sheet_to_json(b);//内容为方式1
+        console.log('==---1222--------', data);
+        var itemHtml = template('accessoriesItem-detail1', {itemList:data});
+        var total = 0;
+        for ( var i = 0; i <data.length; i++){
+          total += parseFloat(data[i].供货量);
+        }
+        $(".price-table").html(itemHtml);
+        $("#allTotal").text(total.toFixed(2));
+      }
+      reader.readAsArrayBuffer(files);
+    })
+    function fixdata(data) { //文件流转BinaryString
+      var o = "",
+        l = 0,
+        w = 10240;
+      for(; l < data.byteLength / w; ++l) o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w, l * w + w)));
+      o += String.fromCharCode.apply(null, new Uint8Array(data.slice(l * w)));
+      return o;
+    }
+  })
+</script>
+<script id="accessories-detail" type="text/html">
+    <div class="information-text-top">
+        <p><span>竞价编号:</span>{{bizNo}}</p>
+        <p><span>发布时间:</span>{{formatDate(crtTime, 'YYYY-MM-DD')}}</p>
+        <p><span>竞价截止时间:</span>{{formatDate(ncEndTime, 'YYYY-MM-DD')}}</p>
+        <p><span>合同开始时间:</span>{{formatDate(supplyStartTime, 'YYYY-MM-DD')}}</p>
+        <p><span>合同结束时间:</span>{{formatDate(supplyEndTime, 'YYYY-MM-DD')}}</p>
+    </div>
+    <div class="information-text-bottom">
+        <p>
+            <span>质量标准:</span>
+            {{standard}}
+        </p>
+    </div>
+    </div>
+</script>
+<script id="accessoriesItem-detail1" type="text/html">
+    <table>
+        <thead>
+        <tr>
+            <th colspan="1" class="disabled">序号</th>
+            <th colspan="2" class="disabled left">辅料名称</th>
+            <th colspan="4" class="disabled left">目的地（饲料厂）</th>
+            <th colspan="2" class="disabled left">单位</th>
+            <th colspan="2" class="disabled left">包装类型</th>
+            <th colspan="2" class="disabled right">需求量(吨)</th>
+            <th colspan="3" class="disabled left">报价类型</th>
+            <th colspan="4" class="left">生产厂家</th>
+            <th colspan="2" class="right">出厂价(元/吨)</th>
+            <th colspan="2" class="right">运费(元/吨)</th>
+            <th colspan="2" class="right">报价(元/吨)</th>
+            <th colspan="2" class="right">供货量(吨)</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        {{each itemList value i}}
+        <tr>
+            <td colspan="1" class="disabled center">{{i+1}}</td>
+            <td colspan="2" class="disabled left">{{value.辅料名称}}</td>
+            <td colspan="4" class="disabled left">{{value.目的地名称}}</td>
+            <td colspan="2" class="disabled left">{{value.单位}}</td>
+            <td colspan="2" class="disabled left">{{value.包装类型}}</td>
+            <td colspan="2" class="disabled right">{{value.需求量}}</td>
+            <td colspan="3" class="disabled left">{{value.报价类型}}</td>
+            <!--<td colspan="3" class="input left">
+                <div class="global-select">
+                    <input type="text" value="1">
+                    <div class="select-input"></div>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                    <img src="./images/downColor.svg">
+                </div>
+            </td>-->
+            <td colspan="4" class="left">{{value.生产厂家}}</td>
+            <td colspan="2" class="right">{{value.出厂价}}</td>
+            <td colspan="2" class="right">{{value.运费}}</td>
+            <td colspan="2" class="right">{{value.报价}}</td>
+            <td id ="amount" colspan="2" class="right">{{value.供货量}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+    <div class="price-total">
+        <p><span>总供货量:</span><span id="allTotal">0.00</span>吨</p>
+        <button id = "submit1" class="price-button" onclick=submit1({itemList:data})>提交</button>
+    </div>
+</script>
+<script id="accessoriesItem-detail2" type="text/html">
+    <table>
+        <thead>
+        <tr>
+            <th colspan="1" class="disabled">序号</th>
+            <th colspan="2" class="disabled left">辅料名称</th>
+            <th colspan="4" class="disabled left">目的地（饲料厂）</th>
+            <th colspan="2" class="disabled left">单位</th>
+            <th colspan="2" class="disabled left">包装类型</th>
+            <th colspan="2" class="disabled right">需求量(吨)</th>
+            <th colspan="3" class="disabled left">报价类型</th>
+            <th colspan="4" class="left">生产厂家</th>
+            <th colspan="2" class="right">出厂价(元/吨)</th>
+            <th colspan="2" class="right">运费(元/吨)</th>
+            <th colspan="2" class="right">报价(元/吨)</th>
+            <th colspan="2" class="right">供货量(吨)</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{each data value i}}
+        <tr>
+            <td colspan="1" id="index" class="disabled center">{{i+1}}</td>
+            <td colspan="2" id="accessoriesName" class="disabled left">{{value.accessoriesName}}</td>
+            <td colspan="4" id='destName' class="disabled left">{{value.destName}}</td>
+            <td colspan="2" id='unit' class="disabled left">{{value.unit}}</td>
+            <td colspan="2" id='packageType' class="disabled left">{{value.packageType}}</td>
+            <td colspan="2" id="amount" class="disabled right">{{value.amount}}</td>
+            <td colspan="3" id='biddingType' class="disabled left">{{value.biddingType}}</td>
+            <!--<td colspan="4" id='destAddr'  class="left"><input type="text" /></td>-->
+            <td colspan="4" id='destAddr' class="left">
+                <div class="global-select">
+                    <input type="text" value={{list[0] && list[0].title}}>
+                    <div class="select-input"></div>
+                    <ul>
+                        {{each list mm i}}
+                        <li>{{mm.title}}</li>
+                        {{/each}}
+                    </ul>
+                    <img src="./images/downColor.svg">
+                </div>
+            </td>
+            <td colspan="2" id='outPrice' class="right"><input type="text" /></td>
+            <td colspan="2" id='freight' class="right"><input type="text" /></td>
+            <td colspan="2" id='biddingPrice' class="right"><input type="text" /></td>
+            <td id ='supplyAmount' colspan="supplyAmount" class="right"><input type="text" /></td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+    <div class="price-total">
+        <p><span>总供货量:</span><span id="allmoney">0.00</span>吨</p>
+        <button class="price-button">提交</button>
+    </div>
+</script>
+<script id="accessories-biddingInfo" type="text/html">
+    <table>
+        <thead>
+        <tr>
+            <th colspan="2" class="left">辅料名称</th>
+            <th colspan="4" class="left">目的地（饲料厂）</th>
+            <th colspan="2" class="left">单位</th>
+            <th colspan="2" class="left">包装类型</th>
+            <th colspan="2" class="right">需求量</th>
+            <th colspan="2" class="left">报价类型</th>
+            <th colspan="4" class="left">生产厂家</th>
+            <th colspan="2" class="right">出厂价(元/吨)</th>
+            <th colspan="2" class="right">运费(元/吨)</th>
+            <th colspan="2" class="right">报价(元/吨)</th>
+            <th colspan="2" class="right">供货量(吨)</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{each data value i}}
+        <tr>
+            <td colspan="2" class="left">{{value.accessoriesName}}</td>
+            <td colspan="4" class="left">{{value.destName}}</td>
+            <td colspan="2" class="left">{{value.unit}}</td>
+            <td colspan="2" class="left">{{value.packageType}}</td>
+            <td colspan="2" class="right">{{value.amount}}</td>
+            <td colspan="2" class="left">{{value.biddingType}}</td>
+            <td colspan="4" class="left">{{value.destAddr}}</td>
+            <td colspan="2" class="right">{{value.outPrice}}</td>
+            <td colspan="2" class="right">{{value.freight}}</td>
+            <td colspan="2" class="right">{{value.biddingPrice}}</td>
+            <td colspan="2" class="right">{{value.supplyAmount}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    <div class="tcdPageCode"></div>
+</script>
+</html>

@@ -1,0 +1,32 @@
+.guidance{
+    display: flex;
+    flex-wrap: wrap;
+}
+.guidance-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 49%;
+    background: #ffffff;
+    padding: 0 40px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #303B3C;
+}
+.guidance-item:hover{
+    border:1px solid #219767;
+    box-shadow:0 3px 6px rgba(194,229,230,1);
+    color:#219767;
+}
+.guidance-item:nth-of-type(2n){
+    margin-right: 0;
+}
+.guidance-item span{
+    color: #E7A618;
+    font-weight: normal;
+}

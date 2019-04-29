@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>牧原供应商 | 账号中心</title>
+    <link rel="stylesheet" href="./lib/reset.css" />
+    <link rel="stylesheet" href="./css/global/login_hander.css" />
+    <link rel="stylesheet" href="./css/find.css">
+</head>
+
+<body>
+    <header class="login_hander">
+        <div>
+            <a href="./index.html">
+                <img src="./images/logo.svg" alt="logo" />
+            </a>
+        </div>
+        <h1>牧原集团供应链管理系统供应商门户</h1>
+    </header>
+    <div class="find-content">
+        <div class="find-box" id="find-box">
+
+        </div>
+        <p class="find-bottom-tips">已有账号，<a href="./login.html">马上登陆</a> <span><a href="./index.html">返回首页</a></span>
+        </p>
+    </div>
+</body>
+<script src="./lib/jquery.min.js"></script>
+<script src="./utils/request.js"></script>
+<script src="./lib/template.js"></script>
+<script id="test" type="text/html">
+    {{ if id === 1  }}
+    <h2 class="find-titlt">
+        <img src="./images/Login/find-user.svg" />
+        找回用户名
+    </h2>
+    <p class="find-tips">请输入注册时输入的证件号码，以进行身份确认</p>
+    <div class="find-form">
+        <div class="find-field" id='login_name'>
+            <label class="find-label">证件号码</label>
+            <input type="text" class="find-text" placeholder="证件号码" tabindex="1" />
+            <i class='find-err' id="err">请输入证件号码</i>
+        </div>
+        <div class="find-field" id='login_email'>
+            <label class="find-label">绑定邮箱</label>
+            <input type="text" class="find-text" placeholder="绑定邮箱" tabindex="1" />
+            <i class='find-err' id="err">请输入绑定邮箱</i>
+            <i class='find-err' id="format">邮箱格式不正确</i>
+        </div>
+        <div class="find-btn">
+            <button class="find-button" id="find-btn-one">下一步</button>
+        </div>
+    </div>
+    {{ else }}
+    <h2 class="find-email">
+        <img src="./images/Login/find-email.svg" />
+        用户名已发送到您邮箱
+    </h2>
+    <p class="find-email-tips">已发送至您的注册邮箱：{{email}}，请注意查收。</p>
+    <div class="find-form">
+        <div class="find-btn">
+            <button class="find-button" id="find-btn-three">返回首页</button>
+        </div>
+    </div>
+    {{ /if }}
+</script>
+<script>
+    $(function () {
+        var email = '';
+        var cardNo = '';
+
+        function templateBox(id, email) {
+            var html = template('test', {
+                id: id,
+                email: email
+            });
+            $("#find-box").html(html);
+        }
+
+        function userExp() {
+            cardNo = $('#login_name input').val();
+            if (cardNo) {
+                return true;
+            } else {
+                $('#login_name i').show();
+                return false;
+            }
+        }
+
+        function emailExp() {
+            email = $('#login_email input').val();
+            var reg = new RegExp(/^([a-zA-Z0-9._-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/);
+            if (reg.test(email)) {
+                return true;
+            } else if (!email) {
+                $('#login_email #err').show();
+                return false;
+            } else {
+                $('#login_email #format').show();
+                return false;
+            }
+        }
+        templateBox(1);
+
+        $('#find-box').on("click", '#find-btn-one', function () {
+            if (userExp() && emailExp()) {
+                post('/api/supply_chain/frontend/anonymous/user/findUsernameByEmail', {
+                    identifyNumber: cardNo,
+                    email,
+                }).then((res) => {
+                    console.log(res);
+                    if (res.rel) {
+                        templateBox(2, email);
+                    } else {
+                        $('#login_email #format').html(res.message).show();
+                    }
+                });
+               
+            }
+        });
+        $('#find-box').on('blur', 'input', function () {
+            if ($(this).parent().attr("id") === 'login_name') {
+                userExp();
+            } else {
+                emailExp();
+            } 
+        })
+
+        $('#find-box').on("click", '#find-btn-three', function () {
+            window.location.href = "./index.html";
+        });
+
+        // 取消警告
+        $('#find-box').on('input propertychange', 'input', function () {
+            $(this).siblings('i').hide();
+        })
+    })
+</script>
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>开票</title>
+    <link rel="stylesheet" href="./css/pay_invoice.css" />
+</head>
+<body>
+<div class="my-wrap my-gray-wrap">
+    <div id="header"></div> 
+    <div class="my-body">
+        <div class="breadcrumbs">
+            <span><a href="./pay_manager.html">付款管理</a></span>>
+            <span class="cur-breadcrumbs fw6">开票</span>
+        </div>
+        <div class="table-top">
+           <div class="pay-info">
+               <!--<strong>按磅单开票</strong>
+               <span>合同编号:123456</span>-->
+           </div>
+            <div class="pay-operate">
+                <div class="pay-history"><img src="./images/icon-pay.svg" alt="">开票历史</div>
+                <div class="pay-check">已勾选<span id="count" >0</span>个磅单，共计<span id="allmoney" >0.00</span>元</div>
+                <div class="pay-btn">开票</div>
+            </div>
+
+        </div>
+        <div class="table">
+            <div class="t-header">
+                <ul>
+                    <li class="th t-td t-check">选择</li>
+                    <li class="th t-td text-more">磅单号</li>
+                    <li class="th t-td text-more">车牌号</li>
+                    <li class="th t-td text-more">物料名称</li>
+                    <li class="th t-td text-more">收货单位</li>
+                    <li class="th t-td">结算单价(元)</li>
+                    <li class="th t-td">付款金额(元)</li>
+                    <li class="th t-td">结算金额(元)</li>
+                    <li class="th t-td">扣杂金额(元)</li>
+                    <li class="th t-td text-more">入库仓库</li>
+                    <li class="th t-td text-more">开票状态</li>
+                </ul>
+            </div>
+            <div class="t-body">
+                <!--<ul class="t-row">-->
+                    <!--<li class="t-td t-check"><input type="checkbox" /></li>-->
+                    <!--<li class="t-td text-left text-more" title="这里是入库仓库名称">12345678900</li>-->
+                    <!--<li class="t-td text-left text-more" title="这里是入库仓库名称">粤B-BHGU4</li>-->
+                    <!--<li class="t-td text-left text-more" title="这里是入库仓库名称">这里是物料名称</li>-->
+                    <!--<li class="t-td text-left text-more" title="这里是入库仓库名称">收货单位</li>-->
+                    <!--<li class="t-td text-right">1000,00</li>-->
+                    <!--<li class="t-td text-right">243</li>-->
+                    <!--<li class="t-td text-right">34</li>-->
+                    <!--<li class="t-td text-right">2323</li>-->
+                    <!--<li class="t-td text-right amount">2323</li>-->
+                    <!--<li class="t-td text-left text-more" title="这里是入库仓库名称">这里是入库仓库名称</li>-->
+                <!--</ul>-->
+                <!--<ul class="t-row">-->
+                    <!--<li class="t-td t-check"><input type="checkbox" /></li>-->
+                    <!--<li class="t-td text-left text-more" title="这里是入库仓库名称">12345678900</li>-->
+                    <!--<li class="t-td text-left text-more" title="这里是入库仓库名称">粤B-BHGU4</li>-->
+                    <!--<li class="t-td text-left text-more" title="这里是入库仓库名称">这里是物料名称</li>-->
+                    <!--<li class="t-td text-left text-more" title="这里是入库仓库名称">收货单位</li>-->
+                    <!--<li class="t-td text-right">1000,00</li>-->
+                    <!--<li class="t-td text-right">243</li>-->
+                    <!--<li class="t-td text-right">34</li>-->
+                    <!--<li class="t-td text-right">2323</li>-->
+                    <!--<li class="t-td text-right amount">2323</li>-->
+                    <!--<li class="t-td text-left text-more" title="这里是入库仓库名称">这里是入库仓库名称</li>-->
+                <!--</ul>-->
+                <div class="no-more">没有更多数据</div>
+            </div>
+        </div>
+        <div id="pagination" class="tcdPageCode"></div>
+    </div>
+</div>
+<div class="modal input-modal-wrap">
+    <div class="modalMark"></div>
+    <div class="modalBox input-modal pb40">
+        <div class="modalHeader">
+            <h4>榜单开票</h4>
+            <img src="./images/icon-close.svg" alt="" class="closeModal">
+        </div>
+        <div class="modalBody input-body pb40">
+            <p>您勾选的榜单金额为：<span id="allmoney1">0.00</span>元，请填写开票全额和发票票号</p>
+            <lable class="input-lable">开票金额</lable>
+            <input id='amount'type="text" placeholder="开票金额不能小于磅单金额">
+            <lable class="input-lable">发票票号</lable>
+            <input id='invoiceNo' type="text" placeholder="请填写发票票号">
+            <div class="btn-group">
+                <button class="closeModal">放弃开票</button>
+                <button class="submit-btn">确认提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal submit-modal-wrap">
+    <div class="modalMark"></div>
+    <div class="modalBox submit-modal">
+        <div class="modalBody submit-body">
+            <div><img src="./images/success.svg" alt=""></div>
+            <p class="">提交成功，等待审核</p>
+            <span>我们将尽快审核您的信息，审核成功后可到开票记录中查看</span>
+            <i>将于<strong id="time">5</strong>s后关闭</i>
+        </div>
+    </div>
+</div>
+<div class="modal history-modal-wrap">
+    <div class="modalBox history-modal">
+        <div class="modalHeader">
+            <h4>磅单历史<span id="bidNo">竞价编号</span></h4>
+            <img src="./images/icon-close.svg" alt="" class="closeModal">
+        </div>
+        <div class="modalBodys">
+        </div>
+        <div id="paginations" class="tcdPageCode"></div>
+    </div>
+</div>
+<div id="footer"></div>
+</body>
+<script src="./utils/load.js"></script>
+<script src="./js/pay_invoice.js"></script>
+<script>
+    $(function () {
+      var contractNo = getUrlParam("FContractNo");
+      var poundIdList = new Array();
+      var statusList = new Array();
+      var invoice = new Map();
+      var main = new Map();
+      main.contractNo = contractNo;
+      var allmoney , count;
+      var i = 5;
+      var timeOut;
+      $('.pay-history').click(function () {
+          $('.history-modal-wrap').show();
+      })
+      // 五秒后消失
+      $('.submit-btn').click(function () {
+        var amount = document.getElementById("amount").value;
+        if (amount < allmoney) {
+          alert("开票金额不能小于磅单金额！");
+        } else {
+            var invoiceNo = document.getElementById("invoiceNo").value;
+            if (amount && invoiceNo) {
+              main.amount = amount;
+              main.invoiceNo = invoiceNo;
+              invoice.main = main;
+              post('/api/supply_chain/frontend/myInvoice/add', invoice).then((res) => {
+              });
+              $('.submit-modal-wrap').show();
+              $('.input-modal-wrap').hide();
+              $('#time').html(i);
+              after();
+            }else{
+              alert("请检查开票金额和发票票号是否填写！");
+            }
+        }
+      })
+      var after = function(){
+          timeOut = setTimeout(function () {
+            if(i > 1 ){
+              i--;
+              $('#time').html(i)
+              after();
+            }else{
+              i=5;
+              $('.submit-modal-wrap').hide();
+            }
+          },1000)
+      }
+      function indexOfa(val , list) {
+        for (var i = 0; i < list.length; i++) {
+          if (this[i] == val) return i;
+        }
+        return -1;
+      };
+      $('.pay-btn').click(function () {
+        if(Number($('#count').text())=== 0){
+          alert('请选择开票磅单！');
+        }else{
+          /*if(statusList.indexOf("已开票") > -1){
+            alert('已开票的单据不能重复开票！');
+          }else{*/
+            $('.input-modal-wrap').show();
+            $('#allmoney1').html(allmoney);
+         /* }*/
+        }
+      })
+      $('.closeModal').click(function () {
+        $('.modal').hide();
+      })
+      $(".t-body").on('click','.t-check input',function(){
+        if($(this).prop('checked')){
+          $(this).prop('cheked',true);
+          $(this).attr('cheked','cheked');
+          count = Number(1+Number($('#count').text()));
+          allmoney = Number($(this).parent().siblings('.amount').text())+Number($('#allmoney').text());
+          poundIdList.push({"detailId":$(this).parent().siblings('.poundId').text()});
+          /*statusList.push($(this).parent().siblings('.status').text());*/
+        }else{
+          $(this).removeAttr('checked');
+          count = Number(Number($('#count').text())-1);
+          allmoney = Number(Number($('#allmoney').text()-$(this).parent().siblings('.amount').text()));
+          poundIdList.splice(indexOfa({"detailId":$(this).parent().siblings('.poundId').text()},poundIdList));
+         /* statusList.splice(indexOfa($(this).parent().siblings('.status').text(),statusList));*/
+        }
+        invoice.itemList= poundIdList;
+        $('#count').html(count);
+        $('#allmoney').html(allmoney.toFixed(2));
+      })
+    })
+</script>
+<script id="typeList" type="text/html">
+    {{each rows value is}}
+    <ul class="t-row">
+    <li class="t-td t-check"><input type="checkbox" /></li>
+    <li class="t-td text-left poundId text-more" title={{value.FPoundId}}>{{value.FPoundId}}</li>
+    <li class="t-td text-left text-more" title={{value.FPlateNo}}>{{value.FPlateNo}}</li>
+    <li class="t-td text-left text-more" title={{value.FSampleName}}>{{value.FSampleName}}</li>
+    <li class="t-td text-left text-more" title={{value.FReceiver}}>{{value.FReceiver}}</li>
+    <li class="t-td text-right">{{value.FUnitPrice}}</li>
+    <li class="t-td text-right">{{value.FPaymentAmount}}</li>
+    <li class="t-td text-right amount">{{value.FSettlementAmount}}</li>
+    <li class="t-td text-right">{{value.FMiscellaneousAmount}}</li>
+    <li class="t-td text-left text-more" title={{value.FWarehouse}}>{{value.FWarehouse}}</li>
+    <li class="t-td text-left status text-more" title={{value.FStatus}}>{{value.FStatus}}</li>
+    </ul>
+    {{/each}}
+</script>
+
+<script id="list" type="text/html">
+    <strong>按磅单开票</strong>
+    <span>合同编号：{{FContractNo}}</span>
+</script>
+
+<script id="newsList" type="text/html">
+    {{each rows value is}}
+    <div class="modalBody history-body">
+        <div class="history-item">
+            <div class="history-info">
+                <p><span id="payNumber">发票号：{{value.main.invoiceNo}}</span><span id="payMoney">发票金额：{{value.main.amount}}</span><span id="payDate">开票时间：{{formatDate(value.main.crtTime, 'YYYY/MM/DD')}}</span></p>
+                <p id="payStatus">付款中...</p>
+            </div>
+            <div class="table history-table mt20">
+                <div class="t-header">
+                    <ul>
+                        <li class="th t-td text-more" title="这里是入库仓库名称">磅单号</li>
+                        <li class="th t-td text-more" title="这里是入库仓库名称">车牌号</li>
+                        <li class="th t-td text-more" title="这里是入库仓库名称">物料名称</li>
+                        <li class="th t-td text-more" title="这里是入库仓库名称">收货单位</li>
+                        <li class="th t-td">结算单价(元)</li>
+                        <li class="th t-td">付款金额(元)</li>
+                        <li class="th t-td">结算金额(元)</li>
+                        <li class="th t-td">扣杂金额(元)</li>
+                        <li class="th t-td text-more text-right" title="这里是入库仓库名称">入库仓库</li>
+                    </ul>
+                </div>
+                <div class="t-body">
+                    {{each value.item items is}}
+                    <ul class="t-row">
+                        <li class="t-td text-left text-more" title={{items.FPoundId}}>{{items.FPoundId}}</li>
+                        <li class="t-td text-left text-more" title={{items.FPlateNo}}>{{items.FPlateNo}}</li>
+                        <li class="t-td text-left text-more" title={{items.FSampleName}}>{{items.FSampleName}}</li>
+                        <li class="t-td text-left text-more" title={{items.FReceiver}}>{{items.FReceiver}}</li>
+                        <li class="t-td text-right">{{items.FUnitPrice}}</li>
+                        <li class="t-td text-right">{{items.FPaymentAmount}}</li>
+                        <li class="t-td text-right amount">{{items.FSettlementAmount}}</li>
+                        <li class="t-td text-right">{{items.FMiscellaneousAmount}}</li>
+                        <li class="t-td text-right text-more" title={{items.FWarehouse}}>{{items.FWarehouse}}</li>
+                    </ul>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+</html>

@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>牧原供应商 | 账号中心</title>
+    <link rel="stylesheet" href="./lib/reset.css" />
+    <link rel="stylesheet" href="./css/global/login_hander.css" />
+    <link rel="stylesheet" href="./lib/selectFilter.css">
+    <link rel="stylesheet" href="./css/register.css">
+
+</head>
+<body>
+    <header class="login_hander">
+        <div>
+            <a href="./index.html">
+                <img src="./images/logo.svg" alt="logo" />
+            </a>
+        </div>
+        <h1>牧原集团供应链管理系统供应商门户</h1>
+    </header>
+    <div class="details-content">
+        <h3>欢迎注册牧原供应链管理系统</h3>
+        <div class="details-box" id="details-box">
+           
+        </div>
+        <p class="details-bottom-tips">已有账号，<a href="./login.html" >马上登陆</a> <span><a href="./index.html">返回首页</a></span></p>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="./lib/template.js"></script>
+<script src="./lib/template-utils.js"></script>
+
+<!-- 农户 -->
+<script id="type1" type="text/html">
+    <form id="form">
+        {{ if id === 1  }}
+        <div class="details-progress">
+            <ul>
+                <li class="active"><i>1</i><span>企业信息填写</span></li>
+                <li><i>2</i><span>用户名及密码填写</span></li>
+                <li><i>3</i><span>联系人填写</span></li>
+                <li><i>4</i><span>证件资料上传</span></li>
+            </ul>
+        </div>
+        <div class="details-form-one">
+            <div class="details-form-row">
+                <div>
+                    <label>请填写您的姓名</label>
+                    <input name="name" type="text" value={{formData.name}}>
+                </div>  
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>请选择所在地区</label>
+                    <div id="location" class="location">
+                        <select name="province" data-province="---- 选择省 ----"></select>
+                        <select name="city" data-city="---- 选择市 ----"></select>
+                        <select name="country" data-district="---- 选择区 ----"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>请选择所供原料类别<span>（可多选）</span></label>
+                    <div class="details-check">
+                        <div class="details-check-row">   
+                            <input name="stuffList" class="input_check" type="checkbox"  value='粮食类' {{if contains(formData.stuffList, '粮食类')}}checked{{/if}} ><label for="foodstuff" >粮食类</label>
+                            <input name="stuffList" class="input_check" type="checkbox" value='粕类' {{if contains(formData.stuffList, '粕类')}}checked{{/if}}><label for="meal">粕类</label>
+                            <input name="stuffList" class="input_check" type="checkbox" value='纤维类' {{if contains(formData.stuffList, '纤维类')}}checked{{/if}}><label for="fibre">纤维类</label>
+                            <input name="stuffList" class="input_check" type="checkbox" value='油脂类' {{if contains(formData.stuffList, '油脂类')}}checked{{/if}}><label for="grease">油脂类</label>
+                            <input name="stuffList" class="input_check" type="checkbox" value='糟类' {{if contains(formData.stuffList, '糟类')}}checked{{/if}}><label for="bad">糟类</label>
+                            <input name="stuffList" class="input_check" type="checkbox" value='载体类' {{if contains(formData.stuffList, '载体类')}}checked{{/if}}><label for="carrier">载体类</label>
+                        </div>
+                        <div class="details-check-row">   
+                            <input  name="stuffList" class="input_check" type="checkbox" value='维生素类' {{if contains(formData.stuffList, '维生素类')}}checked{{/if}}><label for="vitamin">维生素类</label>
+                            <input  name="stuffList" class="input_check" type="checkbox" value='功能性添加剂' {{if contains(formData.stuffList, '功能性添加剂')}}checked{{/if}}><label for="functionality">功能性添加剂</label>
+                            <input  name="stuffList" class="input_check" type="checkbox" value='矿物质类' {{if contains(formData.stuffList, '矿物质类')}}checked{{/if}}><label for="mineral">矿物质类</label>
+                            <input  name="stuffList" class="input_check" type="checkbox" value='营养性添加剂' {{if contains(formData.stuffList, '营养性添加剂')}}checked{{/if}}><label for="nutrition">营养性添加剂</label>
+                            <input  name="stuffList" class="input_check" type="checkbox" value='氨基酸类' {{if contains(formData.stuffList, '氨基酸类')}}checked{{/if}}><label for="acid">氨基酸类</label>                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="details-btn">
+                <div class="details-button-up" id="one-up">上一步</div>
+                <div class="details-button-down" id="one-down">下一步</div>
+            </div>
+        </div>
+        {{ else if id === 2 }}
+        <div class="details-progress">
+            <ul>
+                <li><i>1</i><span>企业信息填写</span></li>
+                <li class="active"><i>2</i><span>用户名及密码填写</span></li>
+                <li><i>3</i><span>联系人填写</span></li>
+                <li><i>4</i><span>证件资料上传</span></li>
+            </ul>
+        </div>
+        <div class="details-form-one">
+            <div class="details-form-row">
+                <div>
+                    <label>请输入用户名</label>
+                    <input name="userName" placeholder='请输入6-15个字符(一个中文字算2个字节)'  id="userName" type="text" value={{formData.userName}}>
+                </div>
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>请输入密码</label>
+                    <input id="password" placeholder='请输入8个字符' name="password" type="password" value={{formData.password}}>
+                </div>   
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>请再次输入密码</label>
+                    <input type="password" placeholder='请再次输入密码' name="rePassword" value={{formData.rePassword}}>
+                </div>   
+            </div>
+            <div class="details-btn">
+                <div class="details-button-up" id="two-up">上一步</div>
+                <div class="details-button-down" id="two-down">下一步</div>
+            </div>
+        </div>
+        {{ else if id === 3 }}
+        <div class="details-progress">
+            <ul>
+                <li><i>1</i><span>企业信息填写</span></li>
+                <li><i>2</i><span>用户名及密码填写</span></li>
+                <li class="active"><i>3</i><span>联系人填写</span></li>
+                <li><i>4</i><span>证件资料上传</span></li>
+            </ul>
+        </div>
+        <div class="details-form-one">
+            <div class="details-form-row">
+                <div>
+                    <label>联系人姓名</label>
+                    <input name="contact" name='contactSex' type="text" value={{formData.contact}}>
+                </div>
+                <div>
+                    <label>性别</label>
+                    <div class="filter-box">
+                        <div class="filter-text">
+                            <input  class="filter-title" type="text" readonly />
+                            <i class="icon icon-filter-arrow"></i>
+                        </div>
+                        <select name='contactSex'>
+                            <option value="MAN"  {{if formData.contactSex == 'MAN' || formData.contactSex==undefined}}selected{{/if}} >男</option>
+                            <option value="WOMAN" {{if formData.contactSex == 'WOMAN'}}selected{{/if}} >女</option>
+                        </select>
+                    </div>
+                    <!-- <div class="sex">
+                        <input  type="radio" value="MAN" name="contactSex" {{if formData.contactSex == 'MAN' || formData.contactSex==undefined}}checked{{/if}}/>男
+                        <input  type="radio" value="WOMAN" name="contactSex" {{if formData.contactSex == 'WOMAN'}}checked{{/if}}/>女
+                    </div> -->
+                </div>
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>联系方式</label>
+                    <div class="telephone">
+                        <div class="">+86<img src="./images/right-arrow.svg"></div>
+                        <input name="contactPhone" type="text" value={{formData.contactPhone}}>
+                    </div>
+                </div> 
+                <div>
+                    <label>电子邮箱</label>
+                    <input name="contactEmail" placeholder='请填写有效邮箱，用于密码找回'  type="text" value={{formData.contactEmail}}>
+                </div>
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>身份证号</label>
+                    <input name="contactIdCard" type="text" value={{formData.contactIdCard}}>
+                </div>
+            </div>
+            <div class="details-btn">
+                <div class="details-button-up" id="three-up">上一步</div>
+                <div class="details-button-down" id="three-down">下一步</div>
+            </div>
+        </div>
+        {{ else if id === 4 }}
+        <div class="details-progress">
+            <ul>
+                <li><i>1</i><span>企业信息填写</span></li>
+                <li><i>2</i><span>用户名及密码填写</span></li>
+                <li><i>3</i><span>联系人填写</span></li>
+                <li class="active"><i>4</i><span>证件资料上传</span></li>
+            </ul>
+        </div>
+        <div class="details-upload-form details-logistics">
+            <div class="details-form-row">
+                <div class="details-upload">
+                    <label>身份证正面</label>
+                    <div class="upload-box">
+                        <div class="upload-modle">
+                            <p>
+                                <img src="./images/Login/upload-1.svg">
+                                <img class="hover" src="./images/Login/upload-2.svg">
+                                <img class="susses" src="./images/Login/upload-3.svg">
+                                <input name="idCardZM" type="file" accept="image/*">
+                            </p>
+                            <span>上传图片</span>
+                            <span class="susses-text">重新上传</span>
+                        </div>
+                    </div>
+                    <p class='details-validity'>证件开始日期：<input name="sfzStartTime" id="sfz_start" type="text" onclick="WdatePicker()"></p>
+                    <p class='details-validity'>证件失效日期：<input name="sfzEndTime"type="text" onclick="WdatePicker({minDate:'#F{$dp.$D(\'sfz_start\')}'})"></p>
+                </div>
+                <div class="details-upload">
+                    <label>身份证反面</label>
+                    <div class="upload-box">
+                        <div class="upload-modle">
+                            <p>
+                                <img src="./images/Login/upload-1.svg">
+                                <img class="hover" src="./images/Login/upload-2.svg">
+                                <img class="susses" src="./images/Login/upload-3.svg">
+                                <input name="idCardFM" type="file" accept="image/*">
+                            </p>
+                            <span>上传图片</span>
+                            <span class="susses-text">重新上传</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="details-upload">
+                    <label>银行卡正面</label>
+                    <div class="upload-box">
+                        <div class="upload-modle">
+                            <p>
+                                <img src="./images/Login/upload-1.svg">
+                                <img class="hover" src="./images/Login/upload-2.svg">
+                                <img class="susses" src="./images/Login/upload-3.svg">
+                                <input name="bankCard" type="file" accept="image/*">
+                            </p>
+                            <span>上传图片</span>
+                            <span class="susses-text">重新上传</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="details-btn upload-btn">
+                <div class="details-button-up" id="four-up">上一步</div>
+                <div class="details-button-down" id="four-down">提交注册信息</div>
+            </div>
+        </div>
+        {{ /if }}
+    </form>
+</script>
+
+<!-- 企业 -->
+<script id="type2" type="text/html">
+    <form id="form">
+        {{ if id === 1  }}
+        <div class="details-progress">
+            <ul>
+                <li class="active"><i>1</i><span>企业信息填写</span></li>
+                <li><i>2</i><span>用户名及密码填写</span></li>
+                <li><i>3</i><span>联系人填写</span></li>
+                <li><i>4</i><span>证件资料上传</span></li>
+            </ul>
+        </div>
+        <div class="details-form">
+            <div class="details-form-row">
+                <div>
+                    <label>请填写单位全称</label>
+                    <input type="text" name="name" value={{formData.name}}>
+                </div>  
+                <div>
+                    <label>公司法人姓名</label>
+                    <input type="text" name="legalName" value={{formData.legalName}}>
+                </div>    
+                <div>
+                    <label>联系方式</label>
+                    <div class="telephone">
+                        <div class="">+86<img src="./images/right-arrow.svg"></div>
+                        <input type="text" name="legalPhone"  value={{formData.legalPhone}}>
+                    </div>
+                </div>    
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>请选择所在地区</label>
+                    <div id="location" class="location">
+                        <select name="province" data-province="---- 选择省 ----"></select>
+                        <select name="city" data-city="---- 选择市 ----"></select>
+                        <select name="country" data-district="---- 选择区 ----"></select>
+                    </div>
+                </div>
+            </div>    
+            <div class="details-form-row">    
+                <div>
+                    <label>公司成立时间</label>
+                    <input type="text" name="foundTime" onclick="WdatePicker()" value={{formData.foundTime}} >
+                </div>
+                <div>
+                    <label>税号</label>
+                    <input type="text" name="identifyNumber" value={{formData.identifyNumber}}>
+                </div>
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>公司详细地址</label>
+                    <input type="text" name="companyAddress" value={{formData.companyAddress}}>
+                </div>
+                <div>
+                    <label>生产工厂详细地址</label>
+                    <input type="text" name="factoryAdrress" value={{formData.factoryAdrress}}>
+                </div>
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>请选择所供原料类别<span>（可多选）</span></label>
+                    <div class="details-check">
+                        <div class="details-check-row">   
+                            <input name="stuffList" class="input_check" type="checkbox"  value='粮食类' {{if contains(formData.stuffList, '粮食类')}}checked{{/if}} ><label for="foodstuff" >粮食类</label>
+                            <input name="stuffList" class="input_check" type="checkbox" value='粕类' {{if contains(formData.stuffList, '粕类')}}checked{{/if}}><label for="meal">粕类</label>
+                            <input name="stuffList" class="input_check" type="checkbox" value='纤维类' {{if contains(formData.stuffList, '纤维类')}}checked{{/if}}><label for="fibre">纤维类</label>
+                            <input name="stuffList" class="input_check" type="checkbox" value='油脂类' {{if contains(formData.stuffList, '油脂类')}}checked{{/if}}><label for="grease">油脂类</label>
+                            <input name="stuffList" class="input_check" type="checkbox" value='糟类' {{if contains(formData.stuffList, '糟类')}}checked{{/if}}><label for="bad">糟类</label>
+                            <input name="stuffList" class="input_check" type="checkbox" value='载体类' {{if contains(formData.stuffList, '载体类')}}checked{{/if}}><label for="carrier">载体类</label>
+                        </div>
+                        <div class="details-check-row">   
+                            <input  name="stuffList" class="input_check" type="checkbox" value='维生素类' {{if contains(formData.stuffList, '维生素类')}}checked{{/if}}><label for="vitamin">维生素类</label>
+                            <input  name="stuffList" class="input_check" type="checkbox" value='功能性添加剂' {{if contains(formData.stuffList, '功能性添加剂')}}checked{{/if}}><label for="functionality">功能性添加剂</label>
+                            <input  name="stuffList" class="input_check" type="checkbox" value='矿物质类' {{if contains(formData.stuffList, '矿物质类')}}checked{{/if}}><label for="mineral">矿物质类</label>
+                            <input  name="stuffList" class="input_check" type="checkbox" value='营养性添加剂' {{if contains(formData.stuffList, '营养性添加剂')}}checked{{/if}}><label for="nutrition">营养性添加剂</label>
+                            <input  name="stuffList" class="input_check" type="checkbox" value='氨基酸类' {{if contains(formData.stuffList, '氨基酸类')}}checked{{/if}}><label for="acid">氨基酸类</label>                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="details-btn">
+                <div class="details-button-up" id="one-up">上一步</div>
+                <div class="details-button-down" id="one-down">下一步</div>
+            </div>
+        </div>
+        {{ else if id === 2 }}
+        <div class="details-progress">
+            <ul>
+                <li><i>1</i><span>企业信息填写</span></li>
+                <li class="active"><i>2</i><span>用户名及密码填写</span></li>
+                <li><i>3</i><span>联系人填写</span></li>
+                <li><i>4</i><span>证件资料上传</span></li>
+            </ul>
+        </div>
+        <div class="details-form-one">
+            <div class="details-form-row">
+                <div>
+                    <label>请输入用户名</label>
+                    <input type="text" placeholder='请输入6-15个字符(一个中文字算2个字节)' name="userName" value={{formData.userName}}>
+                </div>
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>请输入密码</label>
+                    <input type="password" name="password" placeholder='请输入8个字符' id="password" value={{formData.password}}>
+                </div>   
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>请再次输入密码</label>
+                    <input type="password" placeholder='请再次输入密码' name="rePassword" value={{formData.rePassword}}>
+                </div>   
+            </div>
+            <div class="details-btn">
+                <div class="details-button-up" id="two-up">上一步</div>
+                <div class="details-button-down" id="two-down">下一步</div>
+            </div>
+        </div>
+        {{ else if id === 3 }}
+        <div class="details-progress">
+            <ul>
+                <li><i>1</i><span>企业信息填写</span></li>
+                <li><i>2</i><span>用户名及密码填写</span></li>
+                <li class="active"><i>3</i><span>联系人填写</span></li>
+                <li><i>4</i><span>证件资料上传</span></li>
+            </ul>
+        </div>
+        <div class="details-form">
+            <div class="details-form-row">
+                <div>
+                    <label>联系人姓名</label>
+                    <input type="text" name="contact" value={{formData.contact}}>
+                </div>
+                <div>
+                    <label>性别</label>
+                    <div class="filter-box">
+                        <div class="filter-text">
+                            <input  class="filter-title" type="text" readonly />
+                            <i class="icon icon-filter-arrow"></i>
+                        </div>
+                        <select name='contactSex'>
+                            <option value="MAN"  {{if formData.contactSex == 'MAN' || formData.contactSex==undefined}}selected{{/if}} >男</option>
+                            <option value="WOMAN" {{if formData.contactSex == 'WOMAN'}}selected{{/if}} >女</option>
+                        </select>
+                    </div>
+                    <!-- <div class="sex">
+                        <input  type="radio" value="MAN" name="contactSex" {{if formData.contactSex == 'MAN' || formData.contactSex==undefined}}checked{{/if}}/>男
+                        <input  type="radio" value="WOMAN" name="contactSex" {{if formData.contactSex == 'WOMAN'}}checked{{/if}}/>女
+                    </div> -->
+                </div>
+                <div>
+                    <label>联系方式</label>
+                    <div class="telephone">
+                        <div class="">+86<img src="./images/right-arrow.svg"></div>
+                        <input type="text" name="contactPhone" value={{formData.contactPhone}}>
+                    </div>
+                </div> 
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>身份证号</label>
+                    <input type="text" name="contactIdCard" value={{formData.contactIdCard}}>
+                </div>
+                <div>
+                    <label>部门</label>
+                    <input type="text" name="contactDepart" value={{formData.contactDepart}}>
+                </div>
+                <div>
+                    <label>职务</label>
+                    <input type="text" name="contactJob" value={{formData.contactJob}}>
+                </div>
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>电子邮箱</label>
+                    <input type="text" placeholder='请填写有效邮箱，用于密码找回' name="contactEmail"  value={{formData.contactEmail}}>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="details-form-row">
+                <div>
+                    <label>牧原引荐人（选填）</label>
+                    <div class="sex">
+                        <input  type="radio" value="1" name="recommendType" {{if formData.recommendType == 1 || formData.recommendType==undefined}}checked{{/if}}/>内部
+                        <input  type="radio" value="2" name="recommendType" {{if formData.recommendType == 2}}checked{{/if}}/>外部
+                    </div>
+                </div>
+                <div>
+                    <label>推荐人姓名</label>
+                    <input type="text" name="recommendName"  value={{formData.recommendName}}>
+                </div>
+                <div>
+                    <label>工号/电话</label>
+                    <input type="text" placeholder='内部：工号，外部：电话' name="recommendTel"  value={{formData.recommendTel}}>
+                </div>
+            </div>
+            <div class="details-btn">
+                <div class="details-button-up" id="three-up">上一步</div>
+                <div class="details-button-down" id="three-down">下一步</div>
+            </div>
+        </div>
+        {{ else if id === 4 }}
+        <div class="details-progress">
+            <ul>
+                <li><i>1</i><span>企业信息填写</span></li>
+                <li><i>2</i><span>用户名及密码填写</span></li>
+                <li><i>3</i><span>联系人填写</span></li>
+                <li class="active"><i>4</i><span>证件资料上传</span></li>
+            </ul>
+        </div>
+        <div class="details-upload-form details-logistics">
+            <div class="details-form-row">
+                <div class="details-upload">
+                    <label>营业执照</label>
+                    <div class="upload-box">
+                        <div class="">
+                            <p>
+                                <img src="./images/Login/upload-1.svg">
+                                <img class="hover" src="./images/Login/upload-2.svg">
+                                <img class="susses" src="./images/Login/upload-3.svg">
+                                <input name="yyzz" type="file" accept="image/*">
+                            </p>
+                            <span>上传图片</span>
+                            <span class="susses-text">重新上传</span>
+                        </div>
+                    </div>
+                    <p class='details-validity'>证件开始日期：<input name="yyzzStartTime" id="yyzz_start" type="text" onclick="WdatePicker()"></p>
+                    <p class='details-validity'>证件失效日期：<input name="yyzzEndTime"type="text" onclick="WdatePicker({minDate:'#F{$dp.$D(\'yyzz_start\')}'})"></p>
+                </div>
+                <div class="details-upload">
+                    <label>开户许可证</label>
+                    <div class="upload-box">
+                        <div class="upload-modle">
+                            <p>
+                                <img src="./images/Login/upload-1.svg">
+                                <img class="hover" src="./images/Login/upload-2.svg">
+                                <img class="susses" src="./images/Login/upload-3.svg">
+                                <input name="khxk" type="file" accept="image/*">
+                            </p>
+                            <span>上传图片</span>
+                            <span class="susses-text">重新上传</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="details-upload">
+                    <label>生产许可证</label>
+                    <div class="upload-box">
+                        <div class="upload-modle">
+                            <p>
+                                <img src="./images/Login/upload-1.svg">
+                                <img class="hover" src="./images/Login/upload-2.svg">
+                                <img class="susses" src="./images/Login/upload-3.svg">
+                                <input name="scxk" type="file" accept="image/*">
+                            </p>
+                            <span>上传图片</span>
+                            <span class="susses-text">重新上传</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="details-btn upload-btn">
+                <div class="details-button-up" id="four-up">上一步</div>
+                <div class="details-button-down" id="four-down">提交注册信息</div>
+            </div>
+        </div>
+        {{ /if }}
+    </form>
+</script>
+
+<!-- 物流公司 -->
+<script id="type3" type="text/html">
+<form id="form">
+    {{ if id === 1  }}
+    <div class="details-progress">
+        <ul>
+            <li class="active"><i>1</i><span>企业信息填写</span></li>
+            <li><i>2</i><span>用户名及密码填写</span></li>
+            <li><i>3</i><span>联系人填写</span></li>
+            <li><i>4</i><span>证件资料上传</span></li>
+        </ul>
+    </div>
+    <div class="details-form">
+        <div class="details-form-row">
+            <div>
+                <label>请填写单位全称</label>
+                <input type="text" name="name" value={{formData.name}}>
+            </div>
+            <div>
+                <label>公司法人姓名</label>
+                <input type="text" name="legalName" value={{formData.legalName}}>
+            </div>
+            <div>
+                <label>联系方式</label>
+                <div class="telephone">
+                    <div class="">+86<img src="./images/right-arrow.svg"></div>
+                    <input type="text" name="legalPhone" value={{formData.legalPhone}}>
+                </div>
+            </div>     
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>注册资金</label>
+                <input type="text" name="capital" value={{formData.capital}}>
+            </div>
+            <div>
+                <label>公司成立时间</label>
+                <input type="text" name="foundTime" onclick="WdatePicker()" value={{formData.foundTime}}>
+            </div>
+            <div>
+                <label>税号</label>
+                <input type="text" name="identifyNumber" value={{formData.identifyNumber}}>
+            </div>   
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>所在地区</label>
+                <div id="location" class="location">
+                    <select name="province" data-province="---- 选择省 ----"></select>
+                    <select name="city" data-city="---- 选择市 ----"></select>
+                    <select name="country" data-district="---- 选择区 ----"></select>
+                </div>
+            </div>
+        </div>    
+        <div class="details-form-row">    
+            <div>
+                <label>公司详细地址</label>
+                <input type="text" name="companyAddress" value={{formData.companyAddress}}>
+            </div>
+            <div></div>    
+        </div>
+        <div class="details-btn">
+            <div class="details-button-up" id="one-up">上一步</div>
+            <div class="details-button-down" id="one-down">下一步</div>
+        </div>
+    </div>
+    {{ else if id === 2 }}
+    <div class="details-progress">
+        <ul>
+            <li><i>1</i><span>企业信息填写</span></li>
+            <li class="active"><i>2</i><span>用户名及密码填写</span></li>
+            <li><i>3</i><span>联系人填写</span></li>
+            <li><i>4</i><span>证件资料上传</span></li>
+        </ul>
+    </div>
+    <div class="details-form-one">
+        <div class="details-form-row">
+            <div>
+                <label>请输入用户名</label>
+                <input type="text" placeholder='请输入6-15个字符(一个中文字算2个字节)' name="userName" value={{formData.userName}}>
+            </div>
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>请输入密码</label>
+                <input type="password" name="password" placeholder='请输入8个字符' id="password" value={{formData.password}}>
+            </div>   
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>请再次输入密码</label>
+                <input type="password" placeholder='请再次输入密码' name="rePassword" value={{formData.rePassword}}>
+            </div>   
+        </div>
+        <div class="details-btn">
+            <div class="details-button-up" id="two-up">上一步</div>
+            <div class="details-button-down" id="two-down">下一步</div>
+        </div>
+    </div>
+    {{ else if id === 3 }}
+    <div class="details-progress">
+        <ul>
+            <li><i>1</i><span>企业信息填写</span></li>
+            <li><i>2</i><span>用户名及密码填写</span></li>
+            <li class="active"><i>3</i><span>联系人填写</span></li>
+            <li><i>4</i><span>证件资料上传</span></li>
+        </ul>
+    </div>
+    <div class="details-form">
+        <div class="details-form-row">
+            <div>
+                <label>联系人姓名</label>
+                <input type="text" name="contact" value={{formData.contact}}>
+            </div>
+            <div>
+                <label>性别</label>
+                <div class="filter-box">
+                    <div class="filter-text">
+                        <input  class="filter-title" type="text" readonly />
+                        <i class="icon icon-filter-arrow"></i>
+                    </div>
+                    <select name='contactSex'>
+                        <option value="MAN"  {{if formData.contactSex == 'MAN' || formData.contactSex==undefined}}selected{{/if}} >男</option>
+                        <option value="WOMAN" {{if formData.contactSex == 'WOMAN'}}selected{{/if}} >女</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label>联系方式</label>
+                <div class="telephone">
+                    <div class="">+86<img src="./images/right-arrow.svg"></div>
+                    <input type="text" name="contactPhone" value={{formData.contactPhone}}>
+                </div>
+            </div>     
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>身份证号</label>
+                <input type="text" name="contactIdCard" value={{formData.contactIdCard}}>
+            </div>
+            <div>
+                <label>部门</label>
+                <input type="text" name="contactDepart" value={{formData.contactDepart}}>
+            </div>
+            <div>
+                <label>职务</label>
+                <input type="text" name="contactDepart" value={{formData.contactJob}}>
+            </div>   
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>电子邮箱</label>
+                <input type="text" placeholder='请填写有效邮箱，用于密码找回' name="contactEmail" value={{formData.contactEmail}}>
+            </div>
+            <div></div> 
+            <div></div>    
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>牧原引荐人（选填）</label>
+                <div class="sex">
+                    <input  type="radio" value="1" name="recommendType" {{if formData.recommendType == 1 || formData.recommendType==undefined}}checked{{/if}}/>内部
+                    <input  type="radio" value="2" name="recommendType" {{if formData.recommendType == 2}}checked{{/if}}/>外部
+                </div>
+            </div>
+            <div>
+                <label>推荐人姓名</label>
+                <input type="text" name="recommendName"  value={{formData.recommendName}}>
+            </div>
+            <div>
+                <label>工号/电话</label>
+                <input type="text" placeholder='内部：工号，外部：电话' name="recommendTel"  value={{formData.recommendTel}}>
+            </div>
+        </div>
+        <div class="details-btn">
+            <div class="details-button-up" id="three-up">上一步</div>
+            <div class="details-button-down" id="three-down">下一步</div>
+        </div>
+    </div>
+    {{ else if id === 4 }}
+    <div class="details-progress">
+        <ul>
+            <li><i>1</i><span>企业信息填写</span></li>
+            <li><i>2</i><span>用户名及密码填写</span></li>
+            <li><i>3</i><span>联系人填写</span></li>
+            <li class="active"><i>4</i><span>证件资料上传</span></li>
+        </ul>
+    </div>
+    <div class="details-upload-form">
+        <div class="details-form-row">
+            <div class="details-upload">
+                <label>营业执照</label>
+                <div class="upload-box">
+                    <div class="upload-modle">
+                        <p>
+                            <img src="./images/Login/upload-1.svg">
+                            <img class="hover" src="./images/Login/upload-2.svg">
+                            <img class="susses" src="./images/Login/upload-3.svg">
+                            <input name="yyzz" type="file" accept="image/*">
+                        </p>
+                        <span>上传图片</span>
+                        <span class="susses-text">重新上传</span>
+                    </div>
+                </div>
+                <p class='details-validity'>证件开始日期：<input name="yyzzStartTime" id="yyzz_start" type="text" onclick="WdatePicker()"></p>
+                <p class='details-validity'>证件失效日期：<input name="yyzzEndTime"type="text" onclick="WdatePicker({minDate:'#F{$dp.$D(\'yyzz_start\')}'})"></p>
+            </div>
+            <div class="details-upload">
+                <label>开户许可证</label>
+                <div class="upload-box">
+                    <div class="upload-modle">
+                        <p>
+                            <img src="./images/Login/upload-1.svg">
+                            <img class="hover" src="./images/Login/upload-2.svg">
+                            <img class="susses" src="./images/Login/upload-3.svg">
+                            <input name="khxk" type="file" accept="image/*">
+                        </p>
+                        <span>上传图片</span>
+                    </div>
+                </div>
+            </div>
+            <div class="details-upload">
+                <label>道路运输经营许可证</label>
+                <div class="upload-box">
+                    <div class="upload-modle">
+                        <p>
+                            <img src="./images/Login/upload-1.svg">
+                            <img class="hover" src="./images/Login/upload-2.svg">
+                            <img class="susses" src="./images/Login/upload-3.svg">
+                            <input name="dlysjy" type="file" accept="image/*">
+                        </p>
+                        <span>上传图片</span>
+                    </div>
+                </div>
+                <p class='details-validity'>证件开始日期：<input name="dlysjyStartTime" id="dlysjy_start" type="text" onclick="WdatePicker()"></p>
+                <p class='details-validity'>证件失效日期：<input name="dlysjyEndTime"type="text" onclick="WdatePicker({minDate:'#F{$dp.$D(\'dlysjy_start\')}'})"></p>
+            </div>
+            <div class="details-upload">
+                <label>陆路货物运输保险单</label>
+                <div class="upload-box">
+                    <div class="upload-modle">
+                        <p>
+                            <img src="./images/Login/upload-1.svg">
+                            <img class="hover" src="./images/Login/upload-2.svg">
+                            <img class="susses" src="./images/Login/upload-3.svg">
+                            <input name="llhwys" type="file" accept="image/*">
+                        </p>
+                        <span>上传图片</span>
+                    </div>
+                </div>
+                <p class='details-validity'>证件开始日期：<input name="llhwysStartTime" id="llhwys_start" type="text" onclick="WdatePicker()"></p>
+                <p class='details-validity'>证件失效日期：<input name="llhwysEndTime"type="text" onclick="WdatePicker({minDate:'#F{$dp.$D(\'llhwys_start\')}'})"></p>
+            </div>
+        </div>
+        
+        <div class="details-btn upload-btn">
+            <div class="details-button-up" id="four-up">上一步</div>
+            <div class="details-button-down" id="four-down">提交注册信息</div>
+        </div>
+    </div>
+    {{ /if }}
+</form>
+</script>
+
+<!-- 个人 -->
+<script id="type4" type="text/html">
+<form id="form">
+    {{ if id === 1  }}
+    <div class="details-progress">
+        <ul>
+            <li class="active"><i>1</i><span>企业信息填写</span></li>
+            <li><i>2</i><span>用户名及密码填写</span></li>
+            <li><i>3</i><span>联系人填写</span></li>
+            <li><i>4</i><span>证件资料上传</span></li>
+        </ul>
+    </div>
+    <div class="details-form-one">
+        <div class="details-form-row">
+            <div>
+                <label>请填写您的姓名</label>
+                <input type="text" name="name" value={{formData.name}}>
+            </div>     
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>请选择所在地区</label>
+                <div id="location" class="location">
+                    <select name="province" data-province="---- 选择省 ----"></select>
+                    <select name="city" data-city="---- 选择市 ----"></select>
+                    <select name="country" data-district="---- 选择区 ----"></select>
+                </div>
+            </div>  
+        </div>
+        <div class="details-btn">
+            <div class="details-button-up" id="one-up">上一步</div>
+            <div class="details-button-down" id="one-down">下一步</div>
+        </div>
+    </div>
+    {{ else if id === 2 }}
+    <div class="details-progress">
+        <ul>
+            <li><i>1</i><span>企业信息填写</span></li>
+            <li class="active"><i>2</i><span>用户名及密码填写</span></li>
+            <li><i>3</i><span>联系人填写</span></li>
+            <li><i>4</i><span>证件资料上传</span></li>
+        </ul>
+    </div>
+    <div class="details-form-one">
+        <div class="details-form-row">
+            <div>
+                <label>请输入用户名</label>
+                <input type="text" placeholder='请输入6-15个字符(一个中文字算2个字节)' name="userName" value={{formData.userName}}>
+            </div>
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>请输入密码</label>
+                <input type="password" name="password" placeholder='请输入8个字符' id="password">
+            </div>   
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>请再次输入密码</label>
+                <input type="password" placeholder='请再次输入密码' name="rePassword">
+            </div>   
+        </div>
+        <div class="details-btn">
+            <div class="details-button-up" id="two-up">上一步</div>
+            <div class="details-button-down" id="two-down">下一步</div>
+        </div>
+    </div>
+    {{ else if id === 3 }}
+    <div class="details-progress">
+        <ul>
+            <li><i>1</i><span>企业信息填写</span></li>
+            <li><i>2</i><span>用户名及密码填写</span></li>
+            <li class="active"><i>3</i><span>联系人填写</span></li>
+            <li><i>4</i><span>证件资料上传</span></li>
+        </ul>
+    </div>
+    <div class="details-form-one">
+        <div class="details-form-row">
+            <div>
+                <label>联系人姓名</label>
+                <input type="text" name="contact" value={{formData.contact}}>
+            </div>
+            <div>
+                <label>性别</label>
+                <div class="filter-box">
+                    <div class="filter-text">
+                        <input  class="filter-title" type="text" readonly />
+                        <i class="icon icon-filter-arrow"></i>
+                    </div>
+                    <select name='contactSex'>
+                        <option value="MAN"  {{if formData.contactSex == 'MAN' || formData.contactSex==undefined}}selected{{/if}} >男</option>
+                        <option value="WOMAN" {{if formData.contactSex == 'WOMAN'}}selected{{/if}} >女</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>联系方式</label>
+                <div class="telephone">
+                    <div class="">+86<img src="./images/right-arrow.svg"></div>
+                    <input type="text" name="contactPhone" value={{formData.contactPhone}}>
+                </div>
+            </div> 
+            <div>
+                <label>身份证号</label>
+                <input type="text" name="contactIdCard" value={{formData.contactIdCard}}>
+            </div>
+        </div>
+        <div class="details-form-row">
+            <div>
+                <label>电子邮箱</label>
+                <input type="text" placeholder='请填写有效邮箱，用于密码找回' name="contactEmail" value={{formData.contactEmail}}>
+            </div>
+            <div>
+                <label>牧原引荐人（选填）</label>
+                <div class="recommendType">
+                    <div class="filter-text">
+                        <input  class="filter-title" type="text" readonly />
+                        <i class="icon icon-filter-arrow"></i>
+                    </div>
+                    <select name='recommendType'>
+                        <option value="1"  {{if formData.recommendType == 1 || formData.recommendType==undefined}} selected{{/if}} >内部</option>
+                        <option value="2" {{if formData.recommendType == 2}} selected {{/if}} >外部</option>
+                    </select>
+                </div>
+                <!-- <div class="sex">
+                    <input  type="radio" value="1" name="recommendType" {{if formData.recommendType == 1 || formData.recommendType==undefined}}checked{{/if}}/>内部
+                    <input  type="radio" value="2" name="recommendType" {{if formData.recommendType == 2}}checked{{/if}}/>外部
+                </div> -->
+            </div>
+        </div>
+        <div class="details-form-row">
+            
+            <div>
+                <label>推荐人姓名</label>
+                <input type="text" name="recommendName"  value={{formData.recommendName}}>
+            </div>
+            <div>
+                <label>工号/电话</label>
+                <input type="text" placeholder='内部：工号，外部：电话' name="recommendTel"  value={{formData.recommendTel}}>
+            </div>
+        </div>
+        <div class="details-btn">
+            <div class="details-button-up" id="three-up">上一步</div>
+            <div class="details-button-down" id="three-down">下一步</div>
+        </div>
+    </div>
+    {{ else if id === 4 }}
+    <div class="details-progress">
+        <ul>
+            <li><i>1</i><span>企业信息填写</span></li>
+            <li><i>2</i><span>用户名及密码填写</span></li>
+            <li><i>3</i><span>联系人填写</span></li>
+            <li class="active"><i>4</i><span>证件资料上传</span></li>
+        </ul>
+    </div>
+    <div class="details-upload-form details-logistics">
+        <div class="details-form-row">
+            <div class="details-upload">
+                <label>身份证正面</label>
+                <div class="upload-box">
+                    <div class="upload-modle">
+                        <p>
+                            <img src="./images/Login/upload-1.svg">
+                            <img class="hover" src="./images/Login/upload-2.svg">
+                            <img class="susses" src="./images/Login/upload-3.svg">
+                            <input name="idCardZM" type="file" accept="image/*">
+                        </p>
+                        <span>上传图片</span>
+                        <span class="susses-text">重新上传</span>
+                    </div>
+                </div>
+                <p class='details-validity'>证件开始日期：<input name="sfzStartTime" id="sfz_start" type="text" onclick="WdatePicker()"></p>
+                <p class='details-validity'>证件失效日期：<input name="sfzEndTime"type="text" onclick="WdatePicker({minDate:'#F{$dp.$D(\'sfz_start\')}'})"></p>
+            </div>
+            <div class="details-upload">
+                <label>身份证反面</label>
+                <div class="upload-box">
+                    <div class="upload-modle">
+                        <p>
+                            <img src="./images/Login/upload-1.svg">
+                            <img class="hover" src="./images/Login/upload-2.svg">
+                            <img class="susses" src="./images/Login/upload-3.svg">
+                            <input name="idCardFM" type="file" accept="image/*">
+                        </p>
+                        <span>上传图片</span>
+                        <span class="susses-text">重新上传</span>
+                    </div>
+                </div>
+            </div>
+            <div class="details-upload">
+                <label>银行卡正面</label>
+                <div class="upload-box">
+                    <div class="upload-modle">
+                        <p>
+                            <img src="./images/Login/upload-1.svg">
+                            <img class="hover" src="./images/Login/upload-2.svg">
+                            <img class="susses" src="./images/Login/upload-3.svg">
+                            <input name="bankCard" type="file" accept="image/*">
+                        </p>
+                        <span>上传图片</span>
+                        <span class="susses-text">重新上传</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-form-row">
+            <div class="details-upload">
+                <label>营运证</label>
+                <div class="upload-box">
+                    <div class="upload-modle">
+                        <p>
+                            <img src="./images/Login/upload-1.svg">
+                            <img class="hover" src="./images/Login/upload-2.svg">
+                            <img class="susses" src="./images/Login/upload-3.svg">
+                            <input name="yyz" type="file" accept="image/*">
+                        </p>
+                        <span>上传图片</span>
+                        <span class="susses-text">重新上传</span>
+                    </div>
+                </div>
+                <p class='details-validity'>证件开始日期：<input name="yyzStartTime" id="yyz_start" type="text" onclick="WdatePicker()"></p>
+                <p class='details-validity'>证件失效日期：<input name="yyzEndTime"type="text" onclick="WdatePicker({minDate:'#F{$dp.$D(\'yyz_start\')}'})"></p>
+            </div>
+            <div class="details-upload">
+                <label>行驶证</label>
+                <div class="upload-box">
+                    <div class="upload-modle">
+                        <p>
+                            <img src="./images/Login/upload-1.svg">
+                            <img class="hover" src="./images/Login/upload-2.svg">
+                            <img class="susses" src="./images/Login/upload-3.svg">
+                            <input name="xsz" type="file" accept="image/*">
+                        </p>
+                        <span>上传图片</span>
+                        <span class="susses-text">重新上传</span>
+                    </div>
+                </div>
+            </div>
+            <div class="details-upload">
+                <label>从业资格证</label>
+                <div class="upload-box">
+                    <div class="upload-modle">
+                        <p>
+                            <img src="./images/Login/upload-1.svg">
+                            <img class="hover" src="./images/Login/upload-2.svg">
+                            <img class="susses" src="./images/Login/upload-3.svg">
+                            <input name="cyzgz" type="file" accept="image/*">
+                        </p>
+                        <span>上传图片</span>
+                        <span class="susses-text">重新上传</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-btn upload-btn">
+            <div class="details-button-up" id="four-up">上一步</div>
+            <div class="details-button-down" id="four-down">提交注册信息</div>
+        </div>
+    </div>
+    {{ /if }}
+</script>
+
+
+<script id="success" type="text/html">
+    <div class="details-box details-success" id="details-box">
+        <img src="./images/Login/success.svg" class='details-success-img' />
+        <h4 class="details-success-title">提交成功，等待审核</h4>
+        <P>我们将尽快审核您提交的信息。审核通过后将通过邮件方式告知您，请耐心等待。</P>
+        <p>点击<a href="./index.html" >返回首页</a> 继续浏览</p>
+    </div>
+</script>
+<script src="./lib/jquery.min.js"></script>
+<script src="./lib/jquery.validate.min.js"></script>
+<script src="./lib/messages_zh.min.js"></script>
+<script src="./utils/request.js"></script>
+<script src="./js/register.js"></script>
+<script src="./lib/My97DatePicker/WdatePicker.js"></script>
+<script src="./lib/distpicker.min.js"></script>
+<script type="text/javascript" src="./lib/selectFilter.js"></script>
+<script>
+    $(function () {
+        var registerType = getUrlParam('type');
+        var formData = {type: registerType};
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+        
+        function templateBox(id,validate) {
+            validate = validate!=undefined ? validate : true;
+            if (validate && !my_validate()) {
+                return;
+            }
+            getFormData(formData);
+            console.log(id);
+            console.log(formData);
+            var html = template('type'+registerType, { id, formData });
+            $("#details-box").html(html);
+            if(id == 1){
+                $("#location").distpicker({
+                    province: formData.province,
+                    city: formData.city,
+                    district: formData.country,
+                });
+            }
+            if (id === 3) {
+                $('.filter-box').selectFilter();
+                if(registerType == 4) {
+                    
+                    $('.recommendType').selectFilter();
+                }
+            }
+        }
+      
+
+        $(".details-content").on('blur', 'input', function() {
+           console.log(my_validate($(this))) 
+        })
+    
+        templateBox(1,false);
+        $('#details-box').on("click", '#one-down', function () {
+            templateBox(2);
+        });
+        $('#details-box').on("click", '#one-up', function () {
+            window.location.href = "./register.html"; 
+        });
+       
+        $('#details-box').on("click", '#two-up', function () {
+            templateBox(1, false);
+        });
+        $('#details-box').on("click", '#two-down', function () {
+            templateBox(3);
+        });
+        $('#details-box').on("click", '#three-up', function () {
+            templateBox(2, false);
+        });
+        $('#details-box').on("click", '#three-down', function () {
+            templateBox(4);
+        });
+        $('#details-box').on("click", '#four-up', function () {
+            templateBox(3, false);
+        });
+        
+        $('#details-box').on("click", '#four-down', function () {
+            if (!my_validate()) {
+                return;
+            }
+            formData = getFormData(formData);
+            submit(formData).then((res)=>{
+                if(res && res.status==200){
+                    var html = template("success");
+                    $(".details-content").html(html);
+                }
+            });
+        });
+
+        $('#details-box').on('change', '.upload-modle input', function() {
+            var files = $(this).get(0).files;
+            var inputName = $(this)[0].name;
+            if (files.length == 0) {
+                return false
+            } else {
+                _upload(files[0]).then((res) => {
+                    $(this).parent().parent().addClass('upload-susses').next().remove();
+                    $(this).parent().parent().addClass('upload-susses').parent().append(`<img src="${res.data.rows[0] && res.data.rows[0].url}" alt="">`)
+                    formData[inputName] = res.data.rows[0];
+                })
+            }
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./images/favicon.ico">
+    <link rel="Bookmark" href="./images/favicon.ico">
+    <title>新闻列表</title>
+    <script src="./utils/load.js"></script>
+    <link rel="stylesheet" href="./css/new_list.css" />
+</head>
+<body>
+
+<div class="my-wrap my-white-wrap">
+    <div id="header"></div>
+    <div class="my-body mt25 vh100">
+        <div class="new-backgroung">
+            <img src="./images/new-bg.png" alt="">
+        </div>
+        <div class="new-body">
+            <div class="new-nav">
+               
+            </div>
+            <div class="new-con">
+                <ul class="new-list">
+                    <!--<li>-->
+                        <!--<a href="./news_detail.html?id={{value.id}}">-->
+                            <!--<h5 class="new-title">咋个回事</h5>-->
+                            <!--<p>这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的这是个和施工队你吃的</p>-->
+                            <!--<span></span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                </ul>
+                <div id="pagination" class="tcdPageCode"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+</body>
+
+<script src="./js/newsList.js"></script>
+<script>
+  $(function(){
+    $('.new-con').eq(0).show();
+    $('.new-nav ul li').click(function () {
+       var index = $(this).index();
+       $(this).addClass('active').siblings().removeClass('active');
+      $('.new-con').eq(index).show().siblings('.new-con').hide();
+    })
+  })
+</script>
+<script id="typeList" type="text/html">
+     <div class="breadcrumbs">
+         <span><a href="./news.html">新闻动态</a></span>>
+         <span class="cur-breadcrumbs fw6">
+             {{each res.data value is}}
+                {{if value.code==currentType}}
+                     {{value.title}}
+                {{/if}}
+             {{/each}}
+         </span>
+     </div> 
+     <ul>
+         {{each res.data value is}}
+             <li key={{value.code}} {{if value.code==currentType}}class="active"{{/if}}>
+                 <a href="javascript:;">    
+                    {{value.title}}
+                 </a>
+             </li>
+         {{/each}}
+     </ul>
+</script>
+<script id="newsList" type="text/html">
+     {{each rows value is}}
+         <li>
+             <a href="./news_detail.html?id={{value.id}}">
+                 <h5 class="new-title">{{value.title}}</h5>
+                 <p>{{@ value.attr1}}</p>
+                 <span>{{formatDate(value.crtTime, 'YYYY-MM-DD HH:mm')}}</span>
+             </a>
+         </li>
+     {{/each}}
+</script>
+</html>
